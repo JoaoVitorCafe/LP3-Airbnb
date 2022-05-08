@@ -1,0 +1,35 @@
+a {
+    text-decoration: none;
+    
+}
+
+.carousel-item {
+    height: 25rem;
+    width: 100%;
+    position: relative;
+}
+
+.img-logo{
+    height: 3rem;
+}
+
+.card{
+    background-position: center;
+    background-size: cover;
+    margin: 1rem;
+    width: 400px;
+    color: aqua;   
+}
+
+.campo {
+    margin: 0;
+    padding: 0
+}
+
+input {
+    border: 0;
+}
+
+select {
+    margin-left: 1rem;
+}

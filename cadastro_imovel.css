@@ -1,0 +1,52 @@
+body {
+    background-image: url("./imagens_carrossel/cadastro_image.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   text-align: center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.summary {
+    color: whitesmoke;
+}
+
+.box {
+    padding-top: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 1rem;
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    color: whitesmoke;
+    width: 100vw;
+}
+
+.form-control {
+    width: 95%;
+    border: 0;
+    margin: 0.5rem;
+}
+
+.campo {
+    display: flex;
+}
+
+.btn {
+    position: absolute;
+    bottom : 40px;
+    right: 680px;
+}

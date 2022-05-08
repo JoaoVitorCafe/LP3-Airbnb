@@ -1,0 +1,22 @@
+a {
+    text-decoration: none;
+}
+
+.img-logo{
+    height: 3rem;
+}
+
+.round img {
+    border-radius: 50%
+}
+.card{
+    background-position: center;
+    background-size: cover;
+    margin: 1rem;
+    width: 400px;
+    color: aqua;   
+}
+
+.container {
+    width: 100vw;
+}

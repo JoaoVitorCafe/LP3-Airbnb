@@ -1,0 +1,4 @@
+1 - Tem duas fotos na página principal no carousel que não estão boas... tenta achar fotos de casas que se encaixem melhor.
+2 - Baixe todas as fotos utilizadas e coloque numa pasta chamadas "images" e dps substitua os links.
+3 - Verifique se tem algum erro de ortografia nas páginas.
+4 - Confira se tá tudo certo e de acordo com a descrição do trabalho.
