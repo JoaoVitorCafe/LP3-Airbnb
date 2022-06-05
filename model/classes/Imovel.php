@@ -13,6 +13,7 @@
         private $anuncio;
         private $comentarios = array();
         private $alugueis = array() ;
+        private $periodos = array() ;
 
         function __construct($endereco , $capacidade , $complemento , $descricao , $tipo , $preco_diaria , $cartao_recebimento , $anfitriao , $anuncio) {
             $this->endereco = $ependereco;
@@ -148,5 +149,25 @@
            return $this->alugueis;
         }
 
+
+        /**
+         * Get the value of periodos
+         */ 
+        public function getPeriodos()
+        {
+                return $this->periodos;
+        }
+
+        /**
+         * Set the value of periodos
+         *
+         * @return  self
+         */ 
+        public function setPeriodos($periodo)
+        {
+                $this->periodos_push($periodo);
+
+                return $this;
+        }
     }
 ?>

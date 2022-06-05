@@ -7,6 +7,7 @@
         private $periodo_inicio;
         private $periodo_fim;
         private $checked;
+        private $cancelado;
 
       function __construct($locatario , $imovel , $periodo_inicio , $periodo_fim , $checked) {
          $this->locatario = $locatario;
@@ -14,6 +15,7 @@
          $this->periodo_inicio = $periodo_inicio;
          $this->periodo_fim = $periodo_fim;
          $this->checked = false;
+         $this->cancelado = false;
        }
 
       public function setLocatario($locatario)
@@ -70,5 +72,23 @@
       return $this->checked;
      }
 
+        /**
+         * Get the value of cancelado
+         */ 
+        public function getCancelado()
+        {
+                return $this->cancelado;
+        }
 
+        /**
+         * Set the value of cancelado
+         *
+         * @return  self
+         */ 
+        public function setCancelado($cancelado)
+        {
+                $this->cancelado = $cancelado;
+
+                return $this;
+        }
     }
