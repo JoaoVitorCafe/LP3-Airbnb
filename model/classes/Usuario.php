@@ -5,6 +5,7 @@
         private $nome;
         private $senha;
         private $email;
+        private $cpf;
         private $telefone;
         private $cidade;
         private $estado;
@@ -13,10 +14,11 @@
         private $imoveisCadastrados = array();
         private $imoveisAlugados = array();
 
-        function __construct($nome , $senha , $email , $telefone , $cidade , $estado , $pais) {
+        function __construct($nome , $senha , $email , $cpf , $telefone , $cidade , $estado , $pais) {
             $this->nome = $nome;
             $this->senha = $senha;
             $this->email = $email;
+            $this->cpf = $cpf;
             $this->telefone = $telefone;
             $this->cidade = $cidade;
             $this->estado = $estado;
@@ -158,7 +160,25 @@
             
         }
 
-        
 
+        /**
+         * Get the value of cpf
+         */ 
+        public function getCpf()
+        {
+                return $this->cpf;
+        }
+
+        /**
+         * Set the value of cpf
+         *
+         * @return  self
+         */ 
+        public function setCpf($cpf)
+        {
+                $this->cpf = $cpf;
+
+                return $this;
+        }
     }
 ?>
