@@ -22,34 +22,34 @@
       <form>
         <div class="form-group">
           <label for="inputPassword">Nome completo</label>
-          <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Senha" name="nome">
         </div>
           <div class="campo" style="display: flex;">
             <div class="form-group">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
             </div>
             <div class="form-group">
               <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="senha">
             </div>
           </div>    
           <div class="form-group">
             <label for="inputTelefone">Telefone</label>
-            <input type="number" class="form-control" id="inputTelefone" placeholder="Telefone">
+            <input type="number" class="form-control" id="inputTelefone" placeholder="Telefone" name="telefone">
           </div>
           <div class="form-group">
               <label for="inputPais">País</label>
-              <input type="text" class="form-control" id="inputPais" placeholder="Brasil">
+              <input type="text" class="form-control" id="inputPais" placeholder="Brasil" name="pais">
             </div>
             <div class="campo">
               <div class="form-group">
                 <label for="inputState">Estado</label>
-                <input type="text" class="form-control" id="inputState" name="inputState" placeholder="Bahia">
+                <input type="text" class="form-control" id="inputState" name="inputState" placeholder="Bahia" name="estado">
               </div>
               <div class="form-group">
                 <label for="inputCity">Cidade</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Salvador">
+                <input type="text" class="form-control" id="inputCity" placeholder="Salvador" name="cidade">
               </div>
             </div>         
                 <button type="submit" class="btn btn-success">
