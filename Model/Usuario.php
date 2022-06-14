@@ -5,7 +5,6 @@
         private $nome;
         private $senha;
         private $email;
-        private $cpf;
         private $telefone;
         private $cidade;
         private $estado;
@@ -14,11 +13,10 @@
         private $imoveisCadastrados = array();
         private $imoveisAlugados = array();
 
-        function __construct($nome , $senha , $email , $cpf , $telefone , $cidade , $estado , $pais) {
+        function __construct($nome , $email , $senha , $telefone , $cidade , $estado , $pais) {
             $this->nome = $nome;
-            $this->senha = $senha;
             $this->email = $email;
-            $this->cpf = $cpf;
+            $this->senha = $senha;
             $this->telefone = $telefone;
             $this->cidade = $cidade;
             $this->estado = $estado;

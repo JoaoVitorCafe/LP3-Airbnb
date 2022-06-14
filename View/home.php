@@ -32,10 +32,10 @@
           <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a href="./login.html" class="nav-link">Entrar</a>
+                <a href="LOGIN" class="nav-link">Entrar</a>
               </li>
               <li class="nav-item">
-                <a href="./cadastro.html" class="nav-link">Cadastrar</a>
+                <a href="CADASTRARUSUARIO" class="nav-link">Cadastrar</a>
               </li>
             </ul>
           </div>

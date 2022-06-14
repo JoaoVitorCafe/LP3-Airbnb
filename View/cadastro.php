@@ -19,7 +19,7 @@
     
     <div class="box">
       
-      <form>
+      <form name=cadastroUser method="post" action="INCLUIRUSUARIO">
         <div class="form-group">
           <label for="inputPassword">Nome completo</label>
           <input type="password" class="form-control" id="inputPassword" placeholder="Senha" name="nome">

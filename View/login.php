@@ -15,7 +15,7 @@
     </div>
     
     <div class="box">
-      <form>
+      <form name="login" method="post" action="LOGIN" >
           <div class="campo">
             <div class="form-group">
               <label for="inputEmail">Email</label>
