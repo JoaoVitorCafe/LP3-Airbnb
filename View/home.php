@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +19,7 @@
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3">
         <div class="container">
           <a href="./home.html" class="navbar-brand">
-            <img src="./imagens_carrossel/imagem_navbar.webp" alt="" class="img-logo">
+            <img src="styles/imagens_carrossel/imagem_navbar.webp" alt="" class="img-logo">
             CoffeeHousing
           </a>
   
@@ -29,7 +32,17 @@
             <span class="navbar-toggler-icon"></span>
           </button>
   
-          <div class="collapse navbar-collapse" id="navmenu">
+          <div class="collapse navbar-collapse" id="navmenu">  
+          <?php  if(isset($_SESSION['email'])) { ?>
+            <div class="navbar-nav ms-auto">
+               <div class="p-2"><span class="round"><img src="styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
+                <p> <?php $_SESSION['nome'] ?> </p> 
+                <li class="nav-item">
+                  <a href="LOGOUT" class="nav-link">Sair</a>
+                </li>
+              </div>
+            </div>
+            <?php } else {?>
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a href="LOGIN" class="nav-link">Entrar</a>
@@ -38,6 +51,7 @@
                 <a href="CADASTRARUSUARIO" class="nav-link">Cadastrar</a>
               </li>
             </ul>
+            <?php } ?>
           </div>
           
         </div>

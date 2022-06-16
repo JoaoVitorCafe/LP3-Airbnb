@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +29,8 @@
               <input type="password" class="form-control" id="inputPassword" name="senha" placeholder="Password">
             </div>
           </div>    
-          <p>Ainda não tem  uma conta?<a href="./cadastro.html">Cadastrar</a></p>
-            <button type="submit" class="btn btn-success">    
-              <a  class="text-white" href="./perfil.html">Entrar</a>  
-            </button>
+          <p>Ainda não tem  uma conta?<a href="CADASTRARUSUÁRIO">Cadastrar</a></p>
+            <button type="submit" class="btn btn-success">Entrar</button>
           </form>
     </div>
 </div>

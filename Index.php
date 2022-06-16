@@ -10,23 +10,28 @@
 					$controlador->processaRequisicao();
 					break;
 				case "INCLUIRUSUARIO":
-						require "Controller/ControllerNovoUser.php";    
-						$controlador = new ControllerNovoUser();
-						$controlador->processaRequisicao();
-						break;
+					require "Controller/ControllerNovoUser.php";    
+					$controlador = new ControllerNovoUser();
+					$controlador->processaRequisicao();
+					break;
 				case "LOGIN":
 					require "Controller/ControllerLogin.php";    
 					$controlador = new ControllerCadastroUser();
 					$controlador->processaRequisicao();
 					break;
+				case "LOGOUT":
+					require "Controller/ControllerLougout.php";    
+					$controlador = new ControllerLogout();
+					$controlador->processaRequisicao();
+					break;
 				case "PERFIL":
-						require "Controller/ControllerPerfil.php";    
-						$controlador = new ControllerPerfil();
-						$controlador->processaRequisicao();
-						break;
+					require "Controller/ControllerPerfil.php";    
+					$controlador = new ControllerPerfil();
+					$controlador->processaRequisicao();
+					break;
 				default:
 				    require "Controller/ControllerHome.php";
-				    $controlador = new ControllerCadastroUser();
+				    $controlador = new ControllerControllerHome();
 				    $controlador->processaRequisicao();
 				    break;
 			}

@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +36,7 @@
                 <div class="p-2"><span class="round"><img src="styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
                 <p>Sarah Heisenberg</p>
                 <li class="nav-item">
-                  <a href="./home.html" class="nav-link">Sair</a>
+                  <a href="LOGOUT" class="nav-link">Sair</a>
                 </li>
               </div>
           </div>

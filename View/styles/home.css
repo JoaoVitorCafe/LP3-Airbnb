@@ -13,6 +13,10 @@ a {
     height: 3rem;
 }
 
+.round img {
+    border-radius: 50%
+}
+
 .card{
     background-position: center;
     background-size: cover;

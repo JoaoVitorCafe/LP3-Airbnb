@@ -14,7 +14,7 @@
     <div class="summary">
       <h1>Cadastre-se de graça</h1>
       <h2>Crie uma nova conta</h2>
-      <p>Já tem uma conta?<a href="./login.html">Entrar</a></p>
+      <p>Já tem uma conta?<a href="LOGIN">Entrar</a></p>
     </div>
     
     <div class="box">
@@ -52,9 +52,7 @@
                 <input type="text" class="form-control" id="inputCity" placeholder="Salvador" name="cidade">
               </div>
             </div>         
-                <button type="submit" class="btn btn-success">
-                  <a class="text-white" href="./perfil.html">Criar conta</a>
-              </button>
+                <button type="submit" class="btn btn-success"> Criar conta </button>
           </form>
     </div>
 </div>
