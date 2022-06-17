@@ -14,13 +14,18 @@
 					$controlador = new ControllerNovoUser();
 					$controlador->processaRequisicao();
 					break;
+				case "PAGINALOGIN":
+					require "Controller/ControllerPaginaLogin.php";    
+					$controlador = new ControllerPaginaLogin();
+					$controlador->processaRequisicao();
+					break;
 				case "LOGIN":
 					require "Controller/ControllerLogin.php";    
 					$controlador = new ControllerCadastroUser();
 					$controlador->processaRequisicao();
 					break;
 				case "LOGOUT":
-					require "Controller/ControllerLougout.php";    
+					require "Controller/ControllerLogout.php";    
 					$controlador = new ControllerLogout();
 					$controlador->processaRequisicao();
 					break;
@@ -31,10 +36,10 @@
 					break;
 				default:
 				    require "Controller/ControllerHome.php";
-				    $controlador = new ControllerControllerHome();
+				    $controlador = new ControllerHome();
 				    $controlador->processaRequisicao();
 				    break;
-			}
+				}
 		} else                     //senão, vai para uma página padrão, neste caso a home do site
             $url = '404.php';
 ?>

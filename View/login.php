@@ -8,7 +8,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="View/styles/login.css">
     <title>Entrar</title>
 </head>
 <body>
@@ -29,7 +29,7 @@ session_start();
               <input type="password" class="form-control" id="inputPassword" name="senha" placeholder="Password">
             </div>
           </div>    
-          <p>Ainda não tem  uma conta?<a href="CADASTRARUSUÁRIO">Cadastrar</a></p>
+          <p>Ainda não tem  uma conta?<a href="CADASTRARUSUARIO">Cadastrar</a></p>
             <button type="submit" class="btn btn-success">Entrar</button>
           </form>
     </div>

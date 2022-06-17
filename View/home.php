@@ -11,15 +11,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="View/styles/home.css"/>
 </head>
 <body>
      <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3">
         <div class="container">
-          <a href="./home.html" class="navbar-brand">
-            <img src="styles/imagens_carrossel/imagem_navbar.webp" alt="" class="img-logo">
+          <a href="HOME" class="navbar-brand">
+            <img src="View/styles/imagens_carrossel/imagem_navbar.webp" alt="" class="img-logo">
             CoffeeHousing
           </a>
   
@@ -35,8 +35,8 @@
           <div class="collapse navbar-collapse" id="navmenu">  
           <?php  if(isset($_SESSION['email'])) { ?>
             <div class="navbar-nav ms-auto">
-               <div class="p-2"><span class="round"><img src="styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
-                <p> <?php $_SESSION['nome'] ?> </p> 
+               <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
+                <p> <?php echo $_SESSION['nome'] ?> </p> 
                 <li class="nav-item">
                   <a href="LOGOUT" class="nav-link">Sair</a>
                 </li>
@@ -45,7 +45,7 @@
             <?php } else {?>
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a href="LOGIN" class="nav-link">Entrar</a>
+                <a href="PAGINALOGIN" class="nav-link">Entrar</a>
               </li>
               <li class="nav-item">
                 <a href="CADASTRARUSUARIO" class="nav-link">Cadastrar</a>
@@ -69,21 +69,21 @@
         </div>
         <div class="carousel-inner rounded">
           <div class="carousel-item active">
-            <img src="styles/imagens_carrossel/Icone_Casa_Madeira_Nobre_Europa_Kurten-536x370.jpg " height="400px" width="100" class="d-block w-100" alt="...">
+            <img src="View/styles/imagens_carrossel/Icone_Casa_Madeira_Nobre_Europa_Kurten-536x370.jpg " height="400px" width="100" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h3 class="text-light font-weight-bold ">Deixe a curiosidade escolher o seu próximo destino</h3>
             </div>
           </div>
 
           <div class="carousel-item">
-            <img src="styles/imagens_carrossel/casa3.jpg" height="400px" class="d-block w-100" alt="...">
+            <img src="View/styles/imagens_carrossel/casa3.jpg" height="400px" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h3 class="text-light font-weight-bold ">Todo conforto que você precisa</h3>
             </div>
           </div>
           
           <div class="carousel-item">
-            <img src="styles/imagens_carrossel/Best-Airbnbs-in-Southern-California-Featured-Image.jpg" height="500" class="d-block w-100" alt="...">
+            <img src="View/styles/imagens_carrossel/Best-Airbnbs-in-Southern-California-Featured-Image.jpg" height="500" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h3 class="text-light font-weight-bold ">Satisfaça seu desejo de viajar</h3>
             </div>
@@ -162,7 +162,7 @@
       <section class="p-5">
         <div class="container">
           <div class="d-flex flex-wrap">
-              <div class="card text-light style" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg);">
+              <div class="card text-light style" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
                   <h3 class="card-title mb-3">Casa</h3>
                   <p class="card-text">
@@ -173,7 +173,7 @@
                 </div>
               </div>
 
-              <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg);">
+              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
                   <h3 class="card-title mb-3">Casa</h3>
                   <p class="card-text">
@@ -184,7 +184,7 @@
                 </div>
               </div>
             
-              <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg);">
+              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
                   <h3 class="card-title mb-3">Casa</h3>
                   <p class="card-text">
@@ -195,7 +195,7 @@
                 </div>
               </div>
             
-              <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg);">
+              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
                   <h3 class="card-title mb-3">Casa</h3>
                   <p class="card-text">
@@ -206,7 +206,7 @@
                 </div>
               </div>
                  
-              <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg);">
+              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
                   <h3 class="card-title mb-3">Casa</h3>
                   <p class="card-text">
@@ -217,7 +217,7 @@
                 </div>
               </div>
                  
-              <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg);">
+              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
                   <h3 class="card-title mb-3">Casa</h3>
                   <p class="card-text">
@@ -228,7 +228,7 @@
                 </div>
               </div>
                     
-              <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg);">
+              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
                   <h3 class="card-title mb-3">Casa</h3>
                   <p class="card-text">
@@ -317,10 +317,10 @@
             Links úteis
           </h6>
           <p>
-            <a href="#!" class="text-reset">Cadastrar</a>
+            <a href="CADASTRARUSUARIO" class="text-reset">Cadastrar</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Entrar</a>
+            <a href="PAGINALOGIN" class="text-reset">Entrar</a>
           </p>
         </div>
         <!-- Grid column -->

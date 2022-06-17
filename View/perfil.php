@@ -10,7 +10,7 @@
     <title>CoffeeHousing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles/perfil.css">
+    <link rel="stylesheet" href="View/styles/perfil.css">
 </head>
 <body>
      <!-- Navbar -->
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3">
         <div class="container">
           <a href="./home.html" class="navbar-brand">
-            <img src="styles/imagens_carrossel/imagem_navbar.webp" alt="" class="img-logo">
+            <img src="View/styles/imagens_carrossel/imagem_navbar.webp" alt="" class="img-logo">
             CoffeeHousing
           </a>
   
@@ -33,7 +33,7 @@
   
           <div class="collapse navbar-collapse" id="navmenu">
             <div class="navbar-nav ms-auto">
-                <div class="p-2"><span class="round"><img src="styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
+                <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
                 <p>Sarah Heisenberg</p>
                 <li class="nav-item">
                   <a href="LOGOUT" class="nav-link">Sair</a>

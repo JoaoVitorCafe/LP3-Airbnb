@@ -1,5 +1,5 @@
 <?php
-require "Model/.php";
+require "Model/Usuario.php";
 
 class ControllerPerfil{
     

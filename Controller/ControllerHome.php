@@ -1,5 +1,5 @@
 <?php
-require "Model/.php";
+require "Model/Usuario.php";
 // Listar as acomodações no home
 class ControllerHome{
     
