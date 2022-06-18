@@ -19,10 +19,10 @@
     
     <div class="box">
       
-      <form name=cadastroUser method="post" action="INCLUIRUSUARIO">
+      <form name=cadastroUser method="post" action="INCLUIRUSUARIO" enctype="multipart/form-data">
         <div class="form-group">
           <label for="inputPassword">Nome completo</label>
-          <input type="password" class="form-control" id="inputPassword" placeholder="Senha" name="nome">
+          <input type="text" class="form-control" id="inputPassword" placeholder="Nome completo" name="nome">
         </div>
           <div class="campo" style="display: flex;">
             <div class="form-group">
@@ -45,7 +45,7 @@
             <div class="campo">
               <div class="form-group">
                 <label for="inputState">Estado</label>
-                <input type="text" class="form-control" id="inputState" name="inputState" placeholder="Bahia" name="estado">
+                <input type="text" class="form-control" id="inputState" placeholder="Bahia" name="estado">
               </div>
               <div class="form-group">
                 <label for="inputCity">Cidade</label>

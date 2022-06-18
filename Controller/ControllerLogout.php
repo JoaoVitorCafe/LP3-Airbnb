@@ -1,7 +1,7 @@
 <?php
 session_start();
-require "Model/.php";
-class ControllerLogin{
+require "Model/Usuario.php";
+class ControllerLogout{
     
     public function processaRequisicao(){
         // remove all session variables

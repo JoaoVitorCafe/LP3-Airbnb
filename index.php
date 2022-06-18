@@ -21,7 +21,7 @@
 					break;
 				case "LOGIN":
 					require "Controller/ControllerLogin.php";    
-					$controlador = new ControllerCadastroUser();
+					$controlador = new ControllerLogin();
 					$controlador->processaRequisicao();
 					break;
 				case "LOGOUT":
@@ -32,6 +32,11 @@
 				case "PERFIL":
 					require "Controller/ControllerPerfil.php";    
 					$controlador = new ControllerPerfil();
+					$controlador->processaRequisicao();
+					break;
+				case "HOME":
+					require "Controller/ControllerHome.php";    
+					$controlador = new ControllerHome();
 					$controlador->processaRequisicao();
 					break;
 				default:

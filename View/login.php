@@ -18,7 +18,7 @@ session_start();
     </div>
     
     <div class="box">
-      <form name="login" method="post" action="LOGIN" >
+      <form name="login" method="post" action="LOGIN">
           <div class="campo">
             <div class="form-group">
               <label for="inputEmail">Email</label>
@@ -31,7 +31,7 @@ session_start();
           </div>    
           <p>Ainda não tem  uma conta?<a href="CADASTRARUSUARIO">Cadastrar</a></p>
             <button type="submit" class="btn btn-success">Entrar</button>
-          </form>
+      </form>
     </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

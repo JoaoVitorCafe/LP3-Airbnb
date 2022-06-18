@@ -17,7 +17,7 @@
 
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3">
         <div class="container">
-          <a href="./home.html" class="navbar-brand">
+          <a href="HOME" class="navbar-brand">
             <img src="View/styles/imagens_carrossel/imagem_navbar.webp" alt="" class="img-logo">
             CoffeeHousing
           </a>
@@ -34,7 +34,7 @@
           <div class="collapse navbar-collapse" id="navmenu">
             <div class="navbar-nav ms-auto">
                 <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
-                <p>Sarah Heisenberg</p>
+                <p> <?php echo $_SESSION['nome'] ?> </p>
                 <li class="nav-item">
                   <a href="LOGOUT" class="nav-link">Sair</a>
                 </li>
