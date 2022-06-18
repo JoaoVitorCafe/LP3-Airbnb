@@ -13,15 +13,6 @@ class ControllerLogin{
         } else {
             header('Location:PAGINALOGIN', true , 302);
         }   
-        
-        // for($i = 0; i < count($usuarios) ; $i++) {
-        //     if($usuarios[$i]->getEmail() == $_POST['email'] AND usuarios[$i]->getSenha() == $_POST['senha'] ){
-        //         $_SESSION["email"] = $usuarios[$i]->getEmail();
-        //         $_SESSION["nome"] = $usuarios[$i]->getnome();
-        //         return header('Location:PERFIL', true ,302);
-        //     }
-        // }
-    
     }
 }
     
