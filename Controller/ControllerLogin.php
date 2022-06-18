@@ -7,7 +7,7 @@ class ControllerLogin{
         $login = Usuario::pesquisaUsuario($_POST['email'] , $_POST['senha']);
         
         if($login[0] != NULL){
-            $_SESSION["email"] = $login[0];
+            $_SESSION["id"] = $login[0];
             $_SESSION["nome"] =  $login[1];
             header('Location:PERFIL', true , 302);
         } else {

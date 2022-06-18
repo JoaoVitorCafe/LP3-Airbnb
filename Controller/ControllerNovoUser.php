@@ -11,7 +11,7 @@ class ControllerNovoUser{
       
       $this->usuario->cadastrar($this->usuario);
    
-      $_SESSION["email"] = $this->usuario->getEmail();
+      $_SESSION["id"] = $this->usuario->getId();
       $_SESSION["nome"] = $this->usuario->getNome();
       header('Location: PERFIL', true ,302);
    }

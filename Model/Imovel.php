@@ -1,30 +1,28 @@
 <?php
+require_once "Conexao.php";
     class Imovel 
     {
+        private $anfitriao;
+        private $cartao_recebimento;
         private $endereco;
         private $capacidade;
-        private $complemento;
         private $descricao;
         private $tipo;
         private $preco_diaria;
         private $caracteristicas = array();
-        private $cartao_recebimento;
-        private $anfitriao;
         private $anuncio;
         private $comentarios = array();
         private $alugueis = array() ;
         private $periodos = array() ;
 
-        function __construct($endereco , $capacidade , $complemento , $descricao , $tipo , $preco_diaria , $cartao_recebimento , $anfitriao , $anuncio) {
-            $this->endereco = $ependereco;
+        function __construct($anfitriao , $cartao_recebimento , $endereco , $capacidade  , $descricao , $tipo , $preco_diaria) {
+            $this->anfitriao = $anfitriao;
+            $this->cartao_recebimento = $cartao_recebimento;
+            $this->endereco = $endereco;
             $this->capacidade = $capacidade;
-            $this->complemento = $complemento;
             $this->descricao = $descricao;
             $this->tipo = $tipo;
             $this->preco_diaria = $preco_diaria;
-            $this->cartao_recebimento = $cartao_recebimento;
-            $this->anfitriao = $anfitriao;
-            $this->anuncio = null;
         }
 
         public function setEndereco($endereco)

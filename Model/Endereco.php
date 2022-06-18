@@ -1,7 +1,8 @@
 <?php
-
+require_once "Conexao.php";
     class Endereco
     {
+        private $idEndereco;
         private $cep;
         private $rua;
         private $cidade;
@@ -89,5 +90,56 @@
         {
            return $this->complemento;
         } 
+
+        public function cadastrar($endereco) {
+            try{  
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("insert into bd_airbnb.enderecos (cep , rua, cidade ,estado ,pais , numero , complemento) values ( :cep, :rua , :cidade, :estado, :pais, :numero , :complemento)");
+                $sql->bindParam("cep",$cep);
+                $sql->bindParam("rua",$rua);
+                $sql->bindParam("cidade",$cidade);
+                $sql->bindParam("estado",$estado);
+                $sql->bindParam("pais",$pais);
+                $sql->bindParam("numero",$numero);
+                $sql->bindParam("complemento",$complemento);
+                
+                $cep = $endereco->getCep();
+                $rua = $endereco->getRua();
+                $cidade = $endereco->getCidade();
+                $estado = $endereco->getEstado();
+                $pais = $endereco->getPais();
+                $numero = $endereco->getNumero();
+                $complemento = $endereco->getComplemento();
+                
+                $sql->execute();
+                $last_id = $minhaConexao->lastInsertId();
+                $endereco->setIdEndereco($last_id);
+                return $last_id;
+             }
+             catch(PDOException $e){ 
+                echo "entrou no catch".$e->getmessage();
+                return 0;
+             }
+        }
+
+        /**
+         * Get the value of idEndereco
+         */ 
+        public function getIdEndereco()
+        {
+                return $this->idEndereco;
+        }
+
+        /**
+         * Set the value of idEndereco
+         *
+         * @return  self
+         */ 
+        public function setIdEndereco($idEndereco)
+        {
+                $this->idEndereco = $idEndereco;
+
+                return $this;
+        }
     }
 ?>    

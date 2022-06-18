@@ -51,12 +51,12 @@
         <div class="anfitriao">
               <p class="info">
                 <h2>Meus imóveis</h2>
-                <a href="./cadastro_imovel.html">Cadastrar imóveis</a>
+                <a href="CADASTRARIMOVEL">Cadastrar imóveis</a>
               </p>
 
               <div class="d-flex flex-wrap">
 
-                <div class="card text-light" style="background-image: url(styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
+                <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
                   <div class="card-body text-center">
                     <h3 class="card-title mb-3">Casa</h3>
                     <p class="card-text">
@@ -67,7 +67,7 @@
                   </div>
                 </div>
 
-                <div class="card text-light" style="background-image: url(styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
+                <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
                   <div class="card-body text-center">
                     <h3 class="card-title mb-3">Casa</h3>
                     <p class="card-text">
@@ -78,7 +78,7 @@
                   </div>
                 </div>
 
-                <div class="card text-light" style="background-image: url(styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
+                <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
                   <div class="card-body text-center">
                     <h3 class="card-title mb-3">Casa</h3>
                     <p class="card-text">
@@ -96,12 +96,12 @@
           
           <p class="info">
             <h3>Imóveis que já aluguei</h3>
-            <a href="./home.html">Explorar outros imóveis</a>
+            <a href="HOME">Explorar outros imóveis</a>
           </p>
 
           <div class="d-flex flex-wrap">
             
-            <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
+            <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
               <div class="card-body text-center">
                 <h3 class="card-title mb-3">Casa</h3>
                 <p class="card-text">
@@ -112,7 +112,7 @@
               </div>
             </div>
 
-            <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
+            <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
               <div class="card-body text-center">
                 <h3 class="card-title mb-3">Casa</h3>
                 <p class="card-text">
@@ -123,7 +123,7 @@
               </div>
             </div>
 
-            <div class="card text-light" style="background-image: url(styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
+            <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
               <div class="card-body text-center">
                 <h3 class="card-title mb-3">Casa</h3>
                 <p class="card-text">

@@ -1,5 +1,5 @@
 <?php
-require "Conexao.php";
+require_once "Conexao.php";
     class Usuario
     {
         private $id;
@@ -148,7 +148,7 @@ require "Conexao.php";
                
                $usuario = array(NULL , NULL);
                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
-                $usuario[0] = $linha['email'];
+                $usuario[0] = $linha['idusuarios'];
                 $usuario[1]= $linha['nome'];
             }
 

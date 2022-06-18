@@ -39,6 +39,16 @@
 					$controlador = new ControllerHome();
 					$controlador->processaRequisicao();
 					break;
+				case "CADASTRARIMOVEL":
+					require "Controller/ControllerCadastroImovel.php";    
+					$controlador = new ControllerCadastroImovel();
+					$controlador->processaRequisicao();
+					break;
+				case "NOVOIMOVEL":
+					require "Controller/ControllerNovoImovel.php";    
+					$controlador = new ControllerNovoImovel();
+					$controlador->processaRequisicao();
+					break;
 				default:
 				    require "Controller/ControllerHome.php";
 				    $controlador = new ControllerHome();

@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/cadastro_imovel.css">
+    <link rel="stylesheet" href="View/styles/cadastro_imovel.css">
     <title>Entrar</title>
 </head>
 <body>  
     <div class="overlay">
-    <form class="d-flex flex-wrap justify-content-around align-items-center" style="text-align: center;">
+    <form class="d-flex flex-wrap justify-content-around align-items-center" style="text-align: center;" method="post" action="NOVOIMOVEL">
         
         <div class="box">
         <h1>Dados do cartão de crédito</h1>  
         <div class="campo" style="display: flex;">
             <div class="form-group">
               <label for="name">Nome completo</label>
-              <input type="text" class="form-control" id="name" name="nome" placeholder="Nome completo">
+              <input type="text" class="form-control" id="name" name="titular" placeholder="Titular do cartão">
             </div>
             <div class="form-group">
               <label for="cpf">CPF</label>
@@ -30,11 +30,11 @@
           </div>
           <div class="form-group">
             <label for="codigo_seguranca">CVV</label>
-            <input type="number" class="form-control" id="codigo_seguranca" placeholder="699">
+            <input type="number" class="form-control" id="codigo_seguranca" name="codigo_seguranca" placeholder="699">
           </div>
           <div class="form-group">
               <label for="validade_cartao">Data de validade</label>
-              <input type="month" class="form-control" id="validade_cartao" name="validade_cartao">
+              <input type="date" class="form-control" id="validade_cartao" name="validade_cartao">
           </div>
         </div>
 
@@ -91,7 +91,7 @@
             <div class="campo d-flex justify-content-between">
               
               <div class="form-group">
-                <label for="fotos">Fotos</label>
+                <label for="fotos">Foto</label>
                 <input type="file" id="fotos" name="fotos">
               </div>
               
@@ -106,20 +106,20 @@
               
               <select name="tipo_imovel" id="tipo">
                 <option selected>Tipo</option>
-                <option value="1">Quarto</option>
-                <option value="2">Apartamento</option>
-                <option value="3">Casa</option>
-                <option value="4">Fazenda</option>
+                <option value=1>Quarto</option>
+                <option value=2>Apartamento</option>
+                <option value=3>Casa</option>
+                <option value=4>Fazenda</option>
               </select>  
               
               <select name="caracteristicas_imovel" id="caracteristicas" multiple>
-                <option value="1">Cozinha</option>
-                <option value="2">Jacuzzi</option>
-                <option value="3">Refrigerador</option>
-                <option value="4">Camera de segurança</option>
-                <option value="5">Wifi</option>
-                <option value="6">Garagem</option>
-                <option value="7">Alarme de incêndio</option>
+                <option value=1>Cozinha</option>
+                <option value=2>Jacuzzi</option>
+                <option value=3>Refrigerador</option>
+                <option value=4>Camera de segurança</option>
+                <option value=5>Wifi</option>
+                <option value=6>Garagem</option>
+                <option value=7>Alarme de incêndio</option>
               </select>  
 
             </div>
@@ -146,7 +146,7 @@
 
           </div>
 
-            <button class="btn btn-success">
+            <button type="submit" class="btn btn-success">
                 Cadastrar imóvel
             </button>
             
