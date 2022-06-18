@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +30,12 @@
   
           <div class="collapse navbar-collapse" id="navmenu">
             <div class="navbar-nav ms-auto">
-                <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
+                <div class="p-2">
+                  <span class="round">
+                    <a href="PERFIL">
+                      <img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50">
+                    </a>
+                  </span></div>
                 <p> <?php echo $_SESSION['nome'] ?> </p>
                 <li class="nav-item">
                   <a href="LOGOUT" class="nav-link">Sair</a>
@@ -47,7 +49,6 @@
 
      
       <div class="container d-flex flex-row flex-wrap justify-content-lg-between">
-        
         <div class="anfitriao">
               <p class="info">
                 <h2>Meus imóveis</h2>
@@ -55,40 +56,19 @@
               </p>
 
               <div class="d-flex flex-wrap">
+                <?php for($i=0;$i<count($imoveis);$i++){ ?>
+                  <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
+                    <div class="card-body text-center">
+                      <h3 class="card-title mb-3">Tipo<?php echo $imoveis[$i]->getTipo();?></h3>
+                      <p class="card-text">
+                        <?php echo $imoveis[$i]->getDescricao(); ?>
+                      </p>
 
-                <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
-                  <div class="card-body text-center">
-                    <h3 class="card-title mb-3">Casa</h3>
-                    <p class="card-text">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, quas quidem possimus dolorum esse eligendi?
-                    </p>
-                    <a href="./detalhes_anfitriao.html" class="btn btn-primary">Detalhes</a>
+                      <a href="DETALHESANFITRIAO" class="btn btn-primary">Detalhes</a>
+                    
+                    </div>
                   </div>
-                </div>
-
-                <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
-                  <div class="card-body text-center">
-                    <h3 class="card-title mb-3">Casa</h3>
-                    <p class="card-text">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, quas quidem possimus dolorum esse eligendi?
-                    </p>
-                    <a href="./detalhes_anfitriao.html" class="btn btn-primary">Detalhes</a>
-                  </div>
-                </div>
-
-                <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
-                  <div class="card-body text-center">
-                    <h3 class="card-title mb-3">Casa</h3>
-                    <p class="card-text">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Iure, quas quidem possimus dolorum esse eligendi?
-                    </p>
-                    <a href="./detalhes_anfitriao.html" class="btn btn-primary">Detalhes</a>
-                  </div>
-                </div>
-
+                  <?php } ?>
               </div>
         </div>
 
@@ -136,6 +116,7 @@
 
 
           </div>
+        
         </div>
 
       </div>

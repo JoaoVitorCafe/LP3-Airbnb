@@ -97,52 +97,34 @@
               
               <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <textarea name="" id="" cols="30" rows="3" class="form-control" id="descricao" name="descricao"></textarea>
+                <textarea id="descricao" name="descricao" cols="30" rows="3" class="form-control" ></textarea>
               </div>
             </div>
             
             
-            <div class="campo d-flex justify-content-around">              
-              
+            <div class="campo d-flex justify-content-around">                   
               <select name="tipo_imovel" id="tipo">
-                <option selected>Tipo</option>
-                <option value=1>Quarto</option>
-                <option value=2>Apartamento</option>
-                <option value=3>Casa</option>
-                <option value=4>Fazenda</option>
+                <option value="1">Quarto</option>
+                <option value="2">Apartamento</option>
+                <option value="3">Casa</option>
+                <option value="4">Fazenda</option>
               </select>  
               
-              <select name="caracteristicas_imovel" id="caracteristicas" multiple>
-                <option value=1>Cozinha</option>
-                <option value=2>Jacuzzi</option>
-                <option value=3>Refrigerador</option>
-                <option value=4>Camera de segurança</option>
-                <option value=5>Wifi</option>
-                <option value=6>Garagem</option>
-                <option value=7>Alarme de incêndio</option>
+              <select name="caracteristicas_imovel[]" id="caracteristicas" multiple size = 7>
+                <option selected value="1">Cozinha</option>
+                <option value="2">Jacuzzi</option>
+                <option value="3">Refrigerador</option>
+                <option value="4">Camera de segurança</option>
+                <option value="5">Wifi</option>
+                <option value="6">Garagem</option>
+                <option value="7">Alarme de incêndio</option>
               </select>  
-
             </div>
-
-              <div class="campo d-flex justify-content-between">
-  
-                <div class="form-group">
-                  <label for="inicio_locacao">Inicio de perído para locação</label>
-                  <input type="date" class="form-control" id="inicio_locacao" name="inicio_locacao">
-                </div>
-  
-                <div class="form-group">
-                    <label for="fim_locacao">Fim de perído para locação</label>
-                    <input type="date" class="form-control" id="fim" name="fim_locacao">
-                </div>
-  
-              </div>
             
               <div class="form-group">
                 <label for="preco_locacao">Preço da diária</label>
                 <input type="numero" class="form-control" id="preco_locacao" name="preco_locacao" placeholder="R$1000,00">
               </div>
-
 
           </div>
 

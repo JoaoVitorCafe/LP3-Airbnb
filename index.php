@@ -49,6 +49,11 @@
 					$controlador = new ControllerNovoImovel();
 					$controlador->processaRequisicao();
 					break;
+				case "DETALHESANFITRIAO":
+					require "Controller/ControllerDetalhesAnfitriao.php";    
+					$controlador = new ControllerDetalhesAnfitriao();
+					$controlador->processaRequisicao();
+					break;
 				default:
 				    require "Controller/ControllerHome.php";
 				    $controlador = new ControllerHome();

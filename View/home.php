@@ -33,9 +33,15 @@
           </button>
   
           <div class="collapse navbar-collapse" id="navmenu">  
-          <?php  if(isset($_SESSION['email'])) { ?>
+          <?php  if(isset($_SESSION['id'])) { ?>
             <div class="navbar-nav ms-auto">
-               <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
+              <div class="p-2">
+                <span class="round">
+                  <a href="PERFIL">
+                      <img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50">
+                    </a>
+                </span>
+              </div>
                 <p> <?php echo $_SESSION['nome'] ?> </p> 
                 <li class="nav-item">
                   <a href="LOGOUT" class="nav-link">Sair</a>

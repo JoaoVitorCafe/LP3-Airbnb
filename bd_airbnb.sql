@@ -89,6 +89,11 @@ CREATE TABLE IF NOT EXISTS `bd_airbnb`.`tipos` (
   PRIMARY KEY (`idtipos`))
 ENGINE = InnoDB;
 
+INSERT INTO `tipos`(`nome`) 
+VALUES('Quarto'),
+('Apartamento'),
+('Casa'),
+('Fazenda');
 
 -- -----------------------------------------------------
 -- Table `bd_airbnb`.`imoveis`
@@ -252,6 +257,14 @@ CREATE TABLE IF NOT EXISTS `bd_airbnb`.`caracteristicas` (
   PRIMARY KEY (`idcaracteristicas`))
 ENGINE = InnoDB;
 
+INSERT INTO `caracteristicas`(`nome`) 
+VALUES('Cozinha'),
+('Jacuzzi'),
+('Refrigerador'),
+('Camera de segurança'),
+('Wifi'),
+('Garagem'),
+('Alarme de incêndio');
 
 -- -----------------------------------------------------
 -- Table `bd_airbnb`.`imoveis_has_caracteristicas`

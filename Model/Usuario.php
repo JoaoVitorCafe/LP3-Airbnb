@@ -131,7 +131,7 @@ require_once "Conexao.php";
                 return $last_id;
              }
              catch(PDOException $e){
-                 return "entrou no catch".$e->getmessage();
+                 echo "entrou no catch".$e->getmessage();
                  return 0;
              }
         }
@@ -156,13 +156,13 @@ require_once "Conexao.php";
             
            }
            catch(PDOException $e){
-            
+                return 0;
            }
         }
 
         public function setCartoes($cartao)
         {
-            $this->cartoes_push($cartao);
+            array_push($this->cartoes, $cartao);
         } 
 
         public function getCartoes()
@@ -172,7 +172,7 @@ require_once "Conexao.php";
 
         public function setimoveisCadastrados($imovel)
         {
-            $this->imoveisCadastrados_push($imovel);
+            array_push($this->imoveisCadastrados , $imovel);
         } 
 
         public function getimoveisCadastrados()
@@ -182,7 +182,7 @@ require_once "Conexao.php";
 
         public function setimoveisAlugados($imovel)
         {
-            $this->imoveisAlugados_push($imovel);
+            array_push($this->imoveisAlugados , $imovel);
         } 
 
         public function getimoveisAlugados()
