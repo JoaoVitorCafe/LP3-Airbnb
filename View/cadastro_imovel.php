@@ -17,24 +17,24 @@
         <div class="campo" style="display: flex;">
             <div class="form-group">
               <label for="name">Nome completo</label>
-              <input type="text" class="form-control" id="name" name="titular" placeholder="Titular do cartão">
+              <input type="text" class="form-control" id="name" name="titular" placeholder="Titular do cartão" maxlength="45"required>
             </div>
             <div class="form-group">
               <label for="cpf">CPF</label>
-              <input type="number" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+              <input type="number" class="form-control" id="cpf" name="cpf" placeholder="CPF" maxlength="11"required>
             </div>
           </div>    
           <div class="form-group">
             <label for="numero_cartao">Numero do cartão</label>
-            <input type="number" class="form-control" placeholder="1234 1234 1234 1234" name="numero_cartao">
+            <input type="number" class="form-control" placeholder="1234 1234 1234 1234" name="numero_cartao" maxlength="45" required>
           </div>
           <div class="form-group">
             <label for="codigo_seguranca">CVV</label>
-            <input type="number" class="form-control" id="codigo_seguranca" name="codigo_seguranca" placeholder="699">
+            <input type="number" class="form-control" id="codigo_seguranca" name="codigo_seguranca" placeholder="699" maxlength="3" required>
           </div>
           <div class="form-group">
               <label for="validade_cartao">Data de validade</label>
-              <input type="date" class="form-control" id="validade_cartao" name="validade_cartao">
+              <input type="date" class="form-control" id="validade_cartao" name="validade_cartao" required>
           </div>
         </div>
 
@@ -44,33 +44,33 @@
             <div class="campo d-flex">
               <div class="form-group">
                 <label for="cep">CEP</label>
-                <input type="number" class="form-control" id="cep" name="cep" >
+                <input type="number" class="form-control" id="cep" name="cep" maxlength="8" required>
               </div>
               <div class="form-group">
                 <label for="rua">Rua</label>
-                <input type="text" class="form-control"  id="rua" name="rua" >
+                <input type="text" class="form-control"  id="rua" name="rua" maxlength="45" required>
               </div>
             </div>
             
             <div class="campo d-flex">
               <div class="form-group">
                 <label for="numero">Numero</label>
-                <input type="number" class="form-control" name="numero" id="numero" >
+                <input type="number" class="form-control" name="numero" id="numero" maxlength="7" required>
               </div>
               <div class="form-group">
                 <label for="pais">País</label>
-                <input type="text" class="form-control" id="pais" name="pais" >
+                <input type="text" class="form-control" id="pais" name="pais"required maxlength="45">
               </div>
             </div>
 
             <div class="campo d-flex">
               <div class="form-group">
                 <label for="estado">Estado</label>
-                <input type="text" class="form-control" id="estado" name="estado" >
+                <input type="text" class="form-control" id="estado" name="estado" maxlength="45" required>
               </div>
               <div class="form-group">
                 <label for="cidade">Cidade</label>
-                <input type="text" class="form-control" id="cidade" name="cidade">
+                <input type="text" class="form-control" id="cidade" name="cidade"maxlength="45" required>
               </div>
             </div>  
 
@@ -78,12 +78,12 @@
 
               <div class="form-group">
                 <label for="complemento">Complemento</label>
-                <input type="text" class="form-control" id="complemento" name="complemento">
+                <input type="text" class="form-control" id="complemento" name="complemento" maxlength="100">
               </div>
               
               <div class="form-group">
                 <label for="capacidade_pessoas">Capacidade máxima de pessoas</label>
-                <input type="number" class="form-control" id="capacidade_pessoas" name="capacidade_pessoas">
+                <input type="number" class="form-control" id="capacidade_pessoas" name="capacidade_pessoas" maxlength="8" required>
               </div>
               
             </div>
@@ -97,14 +97,14 @@
               
               <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <textarea id="descricao" name="descricao" cols="30" rows="3" class="form-control" ></textarea>
+                <textarea id="descricao" name="descricao" cols="30" rows="3" class="form-control"maxlength="100" required></textarea>
               </div>
             </div>
             
             
             <div class="campo d-flex justify-content-around">                   
               <select name="tipo_imovel" id="tipo">
-                <option value="1">Quarto</option>
+                <option value="1" selected>Quarto</option>
                 <option value="2">Apartamento</option>
                 <option value="3">Casa</option>
                 <option value="4">Fazenda</option>
@@ -123,7 +123,7 @@
             
               <div class="form-group">
                 <label for="preco_locacao">Preço da diária</label>
-                <input type="numero" class="form-control" id="preco_locacao" name="preco_locacao" placeholder="R$1000,00">
+                <input type="numero" class="form-control" id="preco_locacao" name="preco_locacao" placeholder="R$1000,00" maxlength="7" required>
               </div>
 
           </div>

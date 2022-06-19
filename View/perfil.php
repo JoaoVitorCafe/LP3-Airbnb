@@ -207,10 +207,10 @@
             Links úteis
           </h6>
           <p>
-            <a href="#!" class="text-reset">Cadastrar</a>
+            <a href="CADASTRARUSUARIO" class="text-reset">Cadastrar</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Entrar</a>
+            <a href="PAGINALOGIN" class="text-reset">Entrar</a>
           </p>
         </div>
         <!-- Grid column -->

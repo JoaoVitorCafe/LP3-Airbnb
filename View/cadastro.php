@@ -22,34 +22,34 @@
       <form name=cadastroUser method="post" action="INCLUIRUSUARIO" enctype="multipart/form-data">
         <div class="form-group">
           <label for="inputPassword">Nome completo</label>
-          <input type="text" class="form-control" id="inputPassword" placeholder="Nome completo" name="nome">
+          <input type="text" class="form-control" id="inputPassword" placeholder="Nome completo" name="nome" maxlength="45" required>
         </div>
           <div class="campo" style="display: flex;">
             <div class="form-group">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" maxlength="45" required>
             </div>
             <div class="form-group">
               <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="senha">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="senha" maxlength="45" required>
             </div>
           </div>    
           <div class="form-group">
             <label for="inputTelefone">Telefone</label>
-            <input type="number" class="form-control" id="inputTelefone" placeholder="Telefone" name="telefone">
+            <input type="number" class="form-control" id="inputTelefone" placeholder="Telefone" name="telefone" required>
           </div>
           <div class="form-group">
               <label for="inputPais">País</label>
-              <input type="text" class="form-control" id="inputPais" placeholder="Brasil" name="pais">
+              <input type="text" class="form-control" id="inputPais" placeholder="Brasil" name="pais" required>
             </div>
             <div class="campo">
               <div class="form-group">
                 <label for="inputState">Estado</label>
-                <input type="text" class="form-control" id="inputState" placeholder="Bahia" name="estado">
+                <input type="text" class="form-control" id="inputState" placeholder="Bahia" name="estado" required>
               </div>
               <div class="form-group">
                 <label for="inputCity">Cidade</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Salvador" name="cidade">
+                <input type="text" class="form-control" id="inputCity" placeholder="Salvador" name="cidade" required>
               </div>
             </div>         
                 <button type="submit" class="btn btn-success"> Criar conta </button>

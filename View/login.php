@@ -19,11 +19,11 @@
           <div class="campo">
             <div class="form-group">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" maxlength="45" required>
             </div>
             <div class="form-group">
               <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" id="inputPassword" name="senha" placeholder="Password">
+              <input type="password" class="form-control" id="inputPassword" name="senha" placeholder="Password" maxlength="45" required>
             </div>
           </div>    
           <p>Ainda não tem  uma conta?<a href="CADASTRARUSUARIO">Cadastrar</a></p>

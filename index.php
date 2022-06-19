@@ -54,6 +54,11 @@
 					$controlador = new ControllerDetalhesAnfitriao();
 					$controlador->processaRequisicao();
 					break;
+				case "CADASTRARPERIODO":
+					require "Controller/ControllerCadastroPeriodo.php";    
+					$controlador = new ControllerCadastroPeriodo();
+					$controlador->processaRequisicao();
+					break;
 				default:
 				    require "Controller/ControllerHome.php";
 				    $controlador = new ControllerHome();

@@ -60,12 +60,17 @@
 
             <p><?php echo $endereco->format();?></p>
             
-            <p>Período disponivel : 10/02/2022 - 20/09/2022 </p>
-            <p>Diária-R$<?php echo $imovel->getPreco_diaria();?></p>
+            <h6>Períodos disponiveis</h6>
+            <?php foreach ($periodos as $periodo) { ?>
+                <p><?php echo $periodo->format();?></p>
+            <?php } ?>
+            
+            <h6>Diária</h6>
+            <h6>R$<?php echo $imovel->getPreco_diaria();?></h6>
 
-          <?php foreach ($caracteristicas as $caracteristica) { ?>
-            <p> <?php echo $caracteristica; ?></p>
-          <?php } ?>
+            <?php foreach ($caracteristicas as $caracteristica) { ?>
+              <p> <?php echo $caracteristica; ?></p>
+            <?php } ?>
 
 
           <div class="d-flex justify-content-between">
@@ -85,21 +90,22 @@
                   <div class="modal-body">
                     <form action="">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="anuncio" id="check1" value="1-semana">
+                        <input class="form-check-input" type="radio" name="anuncio" id="check1" value="25|+1 week">
                         <label class="form-check-label" for="check1">R$25,00 - 1 semana</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="anuncio" id="check2" value="2-semana">
+                        <input class="form-check-input" type="radio" name="anuncio" id="check2" value="40|+2 weeks">
                         <label class="form-check-label" for="check2">R$40,00 - 2 semanas</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="anuncio" id="check3" value="4-semana">
+                        <input class="form-check-input" type="radio" name="anuncio" id="check3" value="100|+4 weeks">
                         <label class="form-check-label" for="check3">R100,00 - 4 semanas</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="anuncio" id="check3" value="3 meses">
+                        <input class="form-check-input" type="radio" name="anuncio" id="check3" value="250|+3 months">
                         <label class="form-check-label" for="check3">R250,00 - 3 meses</label>
                       </div>
+                      <input type="hidden" name="idImovel" value="<?php echo $imovel->getIdImovel();?>">
                       <button type="submit" class="btn btn-success">Pagar</button>
                     </form>
                   </div>
@@ -107,7 +113,7 @@
             </div>
           </div> 
 
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cadastrarBackdrop">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastrarBackdrop">
                 Cadastrar Períodos
               </button>
 
@@ -120,20 +126,23 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="">
+                      
+                    <form action="CADASTRARPERIODO" method="POST" name="cadastrarperiodo">
                       <div class="campo d-flex justify-content-between pb-5">
                           <div class="form-group">
                             <label for="inicio_locacao">Inicio de perído para locação</label>
-                            <input type="date" class="form-control" id="inicio_locacao" name="inicio_locacao">
+                            <input type="date" class="form-control" id="inicio_locacao" name="inicio_locacao" >
                           </div>
 
                           <div class="form-group">
                               <label for="fim_locacao">Fim de perído para locação</label>
                               <input type="date" class="form-control" id="fim" name="fim_locacao">
                           </div>
+                          <input type="hidden" name="idImovel" value="<?php echo $imovel->getIdImovel();?>">
                         </div>
-                        <button type="submit" class="btn btn-danger">Cancelar locacão</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar período</button>
                       </form>
+
                     </div>
                   </div>
                 </div>
@@ -153,7 +162,7 @@
         <img src="View/styles/imagens_carrossel/casa_pagamento.avif" class="image" alt="">
         
         
-    </div>
+        </div>
     
     </div>
 
