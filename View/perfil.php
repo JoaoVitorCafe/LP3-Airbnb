@@ -59,12 +59,14 @@
                 <?php for($i=0;$i<count($imoveis);$i++){ ?>
                   <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
                     <div class="card-body text-center">
-                      <h3 class="card-title mb-3">Tipo<?php echo $imoveis[$i]->getTipo();?></h3>
+                      <h3 class="card-title mb-3"><?php echo $tipos[$i];?></h3>
                       <p class="card-text">
                         <?php echo $imoveis[$i]->getDescricao(); ?>
                       </p>
-
-                      <a href="DETALHESANFITRIAO" class="btn btn-primary">Detalhes</a>
+                    <form method="post" action="DETALHESANFITRIAO">
+                      <input type="hidden" name="idImovel" value="<?php echo $imoveis[$i]->getIdImovel();?>">
+                      <button type="submit" class="btn btn-primary">Detalhes</button>
+                    </form>
                     
                     </div>
                   </div>

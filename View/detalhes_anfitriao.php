@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,24 +47,25 @@
     <div class="container">
 
         <div class="detalhes">
-            <h1>Casa</h1>
-            <h3>Todo conforto em um só lugar</h3>
+            <h1><?php echo $tipo; ?></h1>
+            <h3><?php echo $imovel->getDescricao(); ?></h3>
             
-            <p>Anfitrião - João Vítor Café</p>
-            <p>Brasil</p>
+            <p>Anfitrião <?php echo $anfitriao->getNome(); ?></p>
+            <p><?php echo $endereco->getPais(); ?></p>
             
             
-            <p><i class="fa-solid fa-person"></i>5</p>
+            <p><i class="fa-solid fa-person"></i>
+            <?php echo $imovel->getCapacidade(); ?>
+            </p>
 
-            <p>Av. Alphaville, 289 - Loteamento - Alphaville I, Salvador - BA, 41701-015</p>
-
+            <p><?php echo $endereco->format();?></p>
+            
             <p>Período disponivel : 10/02/2022 - 20/09/2022 </p>
-            <p>Diária - R$ 1000,00</p>
-            <p>3 Quartos</p>
-            <p>Jacuzzi</p>
-            <p>Piscina</p>
-            <p>Garagem</p>
-            <p>Ar-condicionado</p>
+            <p>Diária-R$<?php echo $imovel->getPreco_diaria();?></p>
+
+          <?php foreach ($caracteristicas as $caracteristica) { ?>
+            <p> <?php echo $caracteristica; ?></p>
+          <?php } ?>
 
 
           <div class="d-flex justify-content-between">

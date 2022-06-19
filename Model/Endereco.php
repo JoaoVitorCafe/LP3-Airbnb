@@ -19,7 +19,18 @@ require_once "Conexao.php";
             $this->pais = $pais;
             $this->numero = $numero;
             $this->complemento = $complemento;
-          }
+        }
+        public function getIdEndereco()
+        {
+                return $this->idEndereco;
+        }
+
+        public function setIdEndereco($idEndereco)
+        {
+                $this->idEndereco = $idEndereco;
+
+                return $this;
+        }
 
         public function setCep($cep)
         {
@@ -89,7 +100,11 @@ require_once "Conexao.php";
         public function getComplemento()
         {
            return $this->complemento;
-        } 
+        }
+        
+        public function format(){
+            return $this->getRua().', '.$this->getNumero().'-'.$this->getComplemento().', '.$this->getCidade().'-'.$this->getEstado().', '.$this->getCep();
+        }
 
         public function cadastrar($endereco) {
             try{  
@@ -122,24 +137,30 @@ require_once "Conexao.php";
              }
         }
 
-        /**
-         * Get the value of idEndereco
-         */ 
-        public function getIdEndereco()
-        {
-                return $this->idEndereco;
-        }
+        
+        public static function find($id){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select * from bd_airbnb.enderecos where idenderecos = :id");
+                $sql->bindParam("id",$id);
+            
+                $sql->execute();
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+                
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $endereco = new Endereco($linha['cep'] , $linha['rua'],
+                $linha['cidade'] , $linha['estado'] , $linha['pais'] , $linha['numero'] , $linha['complemento']);  
+                $endereco->setIdEndereco($linha['idenderecos']);
+            }
+                    
+            return $endereco;
+            
+            }
 
-        /**
-         * Set the value of idEndereco
-         *
-         * @return  self
-         */ 
-        public function setIdEndereco($idEndereco)
-        {
-                $this->idEndereco = $idEndereco;
-
-                return $this;
+           catch(PDOException $e){
+            echo"entrou no catch".$e->getmessage();
+            return 0;
+           }
         }
     }
 ?>    

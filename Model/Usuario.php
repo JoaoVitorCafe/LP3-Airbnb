@@ -95,6 +95,49 @@ require_once "Conexao.php";
            return $this->pais;
         }
 
+        public function setCartoes($cartao)
+        {
+            array_push($this->cartoes, $cartao);
+        } 
+
+        public function getCartoes()
+        {
+            return $this->cartoes;
+        }
+
+        public function setimoveisCadastrados($imovel)
+        {
+            array_push($this->imoveisCadastrados , $imovel);
+        } 
+
+        public function getimoveisCadastrados()
+        {
+            return $this->imoveisCadastrados;
+        }
+
+        public function setimoveisAlugados($imovel)
+        {
+            array_push($this->imoveisAlugados , $imovel);
+        } 
+
+        public function getimoveisAlugados()
+        {
+            return $this->imoveisAlugados;
+        }
+     
+        public function getId()
+        {
+                return $this->id;
+        }
+
+     
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
+
         public function cadastrar($usuario) {
             try{
                 $minhaConexao = Conexao::getConexao();
@@ -160,84 +203,30 @@ require_once "Conexao.php";
            }
         }
 
-        public function setCartoes($cartao)
-        {
-            array_push($this->cartoes, $cartao);
-        } 
-
-        public function getCartoes()
-        {
-            return $this->cartoes;
-        }
-
-        public function setimoveisCadastrados($imovel)
-        {
-            array_push($this->imoveisCadastrados , $imovel);
-        } 
-
-        public function getimoveisCadastrados()
-        {
-            return $this->imoveisCadastrados;
-        }
-
-        public function setimoveisAlugados($imovel)
-        {
-            array_push($this->imoveisAlugados , $imovel);
-        } 
-
-        public function getimoveisAlugados()
-        {
-            return $this->imoveisAlugados;
-        }
-
-        public function cadastrarImovel()
-        {
-           
-        }
-
-        public function adicionarCartao()
-        {
-          
-        }
-
-        public function alugarImovel()
-        {
+        public static function find($id){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select * from bd_airbnb.usuarios where idusuarios = :id");
+                $sql->bindParam("id",$id);
             
-        }
-
-        public function cancelarLocacao()
-        {
+                $sql->execute();
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+                
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $usuario = new Usuario($linha['nome'] , $linha['email'],
+                $linha['senha'] , $linha['telefone'] , $linha['cidade'] , $linha['estado'] ,$linha['pais']);  
+                   
+                $usuario->setId($linha['idusuarios']);
+            }
+                    
+            return $usuario;
             
-        }
+            }
 
-        public function fazerCheck_in()
-        {
-          
-        }
-
-        public function postarComentario()
-        {
-          
-        }
-
-        public function pagarAnuncio()
-        {
-            
-        }
-
-
-     
-        public function getId()
-        {
-                return $this->id;
-        }
-
-     
-        public function setId($id)
-        {
-                $this->id = $id;
-
-                return $this;
+           catch(PDOException $e){
+            echo"entrou no catch".$e->getmessage();
+            return 0;
+           }
         }
     }
 ?>

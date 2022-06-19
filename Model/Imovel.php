@@ -26,6 +26,18 @@ require_once "Conexao.php";
             $this->preco_diaria = $preco_diaria;
         }
 
+        public function getIdImovel()
+        {
+                return $this->idImovel;
+        }
+        
+        public function setIdImovel($idImovel)
+        {
+                $this->idImovel = $idImovel;
+
+                return $this;
+        }
+
         public function setEndereco($endereco)
         {
             $this->endereco = $endereco;
@@ -255,24 +267,80 @@ require_once "Conexao.php";
            }
         }
 
-        /**
-         * Get the value of idImovel
-         */ 
-        public function getIdImovel()
-        {
-                return $this->idImovel;
+        public static function find($id){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select * from bd_airbnb.imoveis where idimoveis = :id");
+                $sql->bindParam("id",$id);
+            
+                $sql->execute();
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+                
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["enderecos_idenderecos"] ,
+                $linha['capacidade'] , $linha['descricao'] , intval($linha['tipos_idtipos']) , $linha['preco_diaria']);  
+                $imovel->setIdImovel($linha['idimoveis']);
+            }
+                    
+            return $imovel;
+            
+            }
+
+           catch(PDOException $e){
+            echo"entrou no catch".$e->getmessage();
+            return 0;
+           }
         }
 
-        /**
-         * Set the value of idImovel
-         *
-         * @return  self
-         */ 
-        public function setIdImovel($idImovel)
-        {
-                $this->idImovel = $idImovel;
+        public static function findTipo($id){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select * from bd_airbnb.tipos where idtipos = :id");
+                $sql->bindParam("id",$id);
+            
+                $sql->execute();
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+                
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $tipo = $linha['nome'];
+                }
+                    
+            return $tipo;
+            
+            }
 
-                return $this;
+           catch(PDOException $e){
+            echo"entrou no catch".$e->getmessage();
+            return 0;
+           }
         }
+    
+        public static function findCaracteristicas($id){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select * from bd_airbnb.imoveis_has_caracteristicas inner join bd_airbnb.caracteristicas 
+                on bd_airbnb.imoveis_has_caracteristicas.caracteristicas_idcaracteristicas = bd_airbnb.caracteristicas.idcaracteristicas
+                where bd_airbnb.imoveis_has_caracteristicas.imoveis_idimoveis = :id;");
+                $sql->bindParam("id",$id);
+            
+                $sql->execute();
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+                
+                $caracteristicas = array();
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                array_push($caracteristicas , $linha['nome']);
+                }
+                    
+                return $caracteristicas;
+            
+            }
+
+           catch(PDOException $e){
+            echo"entrou no catch".$e->getmessage();
+            return 0;
+           }
+        }
+    
+    
     }
 ?>
