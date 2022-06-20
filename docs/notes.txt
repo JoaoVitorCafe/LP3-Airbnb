@@ -1,0 +1,82 @@
+1 - Organizar pasta "views"
+    - mudar nome da pasta "imagens_carrossel" para apenas "images".
+    - tirar da pasta styles e deixar na pasta views.
+    - alterar os caminhos da imagem nos arquivos css e html.
+
+3 - Como cadastrar imagens? Descobrir o motivo de funcionar apenas no windows
+4 - Usar classes estáticas no controller para não precisar ficar
+criando objetos do tipo livro toda hora.
+
+
+--------------NEXT--------
+/*DONE
+/*Revisar tudo*/
+/*Cadastrar Imóveis - Parte mais difícil - Verificar ordem de cadastros*/
+
+/*DONE
+1 - Cadastrar TIPOS diretamente no sql.
+2 - Cadatrar CARACTERISTICAS diretamente no sql.
+ DONE - 3 - Cadastrar o CARTÃO - Fazer objeto e salvar no banco de dados.
+- Adicionar titular no banco de dados em cartao
+DONE - 4 - Cadastrar o ENDEREÇO - Fazer objeto e salvar no banco de dados.
+5 - Finalmente cadastrar o IMÓVEL com todos os objetos.
+DONE*/
+
+/*DONE
+1 - Modificar página de detalhes_anfitriao e outras se achar necessário
+2 - Adicionar botão de cadastrar períodos e cadastrar períodos no banco
+3 - Chamar os imóveis que o usuário cadastrou para a página PERFIL(para isso fazer método em imovéis que retorna todos)
+4 - Fazer um for loop para mostra-los na página
+5 - Agora dar um jeito de chamar o imóvel na página de detalhes criando um formulario e passando o id no input hidden
+6 provavelmente criar outro controller pra fazer isso 
+DONE*/
+
+/*DONE
+    4 - Começar a cadastrar os períodos
+    5 - Como conectar perídos ao imovel?("usar input hidden pra passar o id do imóvel q clicou")
+*/DONE
+
+
+
+
+/*TODO 
+    1 - Chamar as acomodações para página home(chamar apenas aquela que não pertencem ao usuário cadastrado, caso não tiver logado chaamar tudo)
+
+	2- FAZER A IMAGEM APARECER.
+	2 - Alterar diagrama ERR usuario(estado , cidade);
+    
+    2 - Criar função de pesquisa.
+    
+    3 - Revisar lógica dos anuncios e fazer
+    usar funcao explode para sepaar a string q vem no value
+    http://devfuria.com.br/php/manipulando-radio-button-com-php/
+    https://www.devmedia.com.br/manipulando-datas-com-php/32966
+    https://www.w3schools.com/php/func_string_explode.asp
+    Pagamento do anuncio(com que cartão?)(solução puxar a página de pagamentos)
+    
+    4 - Avaliar páginas de detalhes
+    Anfitrião
+    Mostrar pagar para divulgar e cadastrar períodos quando o usuário tiver com sessão e o idusuario do imóvel for igual ao id da sessão
+    desabilitar botão de pagar para divulgar se já tiver com anuncios
+    
+    user anonimo
+    Mostrar botão alugar quando o usuário não tiver setado
+
+    locatario - fazer depois da parte de compras
+    mostrar página do locatário quando o idsessao for diferente do idusuario do imovel e verificar se o iddoimovel e do usuario estão 
+    na mesma tabela alugueis.
+    
+    5 - Fazer parte de aluguel e comentários.
+    
+    * - Resolver problemas do css na pagina de detalhes;
+*/
+
+## Problemas 
+- Cadastrar imagem = colocar qualquer coisa apenas para testar;
+OBS - iMAGEM DE FORMATO AVI NÃO FUNCIONA NO WINDOWS - padronizar tudo para jpeg
+
+
+## Ideias para depois
+- ATENÇÃO - DÁ PRA FAZER OS DETALHES COM APENAS UMA PAGINA E FAZER COMPARAÇÕES PARA SABER O QUE VAI EXIBIR;
+- Melhorar dinamica dos cartoes
+- Acrescentar um tipo neles para saber se é de pagamento ou de recebimento

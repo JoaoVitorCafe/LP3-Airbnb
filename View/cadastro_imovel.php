@@ -91,8 +91,8 @@
             <div class="campo d-flex justify-content-between">
               
               <div class="form-group">
-                <label for="fotos">Foto</label>
-                <input type="file" id="fotos" name="fotos">
+                <label for="imagem">Imagem do imovel</label>
+                <input type="file" id="imagem" name="imagem">
               </div>
               
               <div class="form-group">

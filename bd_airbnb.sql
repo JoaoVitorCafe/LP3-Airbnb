@@ -28,8 +28,6 @@ CREATE TABLE IF NOT EXISTS `bd_airbnb`.`usuarios` (
   `email` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   `telefone` INT(11) NOT NULL,
-  `cidade` VARCHAR(45) NOT NULL,
-  `estado` VARCHAR(45) NOT NULL,
   `pais` VARCHAR(45) NOT NULL,
   `imagem` VARCHAR(45) NULL,
   PRIMARY KEY (`idusuarios`),
@@ -89,6 +87,12 @@ CREATE TABLE IF NOT EXISTS `bd_airbnb`.`tipos` (
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idtipos`))
 ENGINE = InnoDB;
+
+INSERT INTO `tipos`(`nome`) 
+	VALUES('Quarto'),
+    ('Apartamento'),
+    ('Casa'),
+    ('Fazenda');
 
 
 -- -----------------------------------------------------
@@ -253,6 +257,15 @@ CREATE TABLE IF NOT EXISTS `bd_airbnb`.`caracteristicas` (
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idcaracteristicas`))
 ENGINE = InnoDB;
+
+INSERT INTO `caracteristicas`(`nome`) 
+	VALUES('Cozinha'),
+	('Jacuzzi'),
+	('Refrigerador'),
+	('Camera de segurança'),
+	('Wifi'),
+	('Garagem'),
+	('Alarme de incêndio');
 
 
 -- -----------------------------------------------------

@@ -33,7 +33,7 @@
                 <div class="p-2">
                   <span class="round">
                     <a href="PERFIL">
-                      <img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50">
+                      <img src='./LP3-Airbnb/1.jpg' alt="user" width="50">
                     </a>
                   </span></div>
                 <p> <?php echo $_SESSION['nome'] ?> </p>
@@ -46,7 +46,7 @@
       </div>
     </nav>
      <!-- Navbar -->
-
+  
      
       <div class="container d-flex flex-row flex-wrap justify-content-lg-between">
         <div class="anfitriao">

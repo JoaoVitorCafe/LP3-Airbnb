@@ -7,21 +7,17 @@ require_once "Conexao.php";
         private $senha;
         private $email;
         private $telefone;
-        private $cidade;
-        private $estado;
         private $pais;
         private $cartoes = array();
         private $imoveisCadastrados = array();
         private $imoveisAlugados = array();
-        // private $imagem;
+        private $imagem;
 
-        function __construct($nome , $email , $senha , $telefone , $cidade , $estado , $pais) {
+        function __construct($nome , $email , $senha , $telefone  , $pais) {
             $this->nome = $nome;
             $this->email = $email;
             $this->senha = $senha;
             $this->telefone = $telefone;
-            $this->cidade = $cidade;
-            $this->estado = $estado;
             $this->pais = $pais;
         }
 
@@ -64,26 +60,6 @@ require_once "Conexao.php";
         {
            return $this->telefone;
         }
-
-        public function setCidade($cidade)
-        {
-            $this->cidade = $cidade;
-        } 
-
-        public function getCidade()
-        {
-           return $this->cidade;
-        }
-
-        public function setEstado($estado)
-        {
-            $this->estado = $estado;
-        } 
-
-       public function getEstado()
-       {
-        return $this->estado;
-       }
 
         public function setPais($pais)
         {
@@ -141,36 +117,35 @@ require_once "Conexao.php";
         public function cadastrar($usuario) {
             try{
                 $minhaConexao = Conexao::getConexao();
-                $sql = $minhaConexao->prepare("insert into bd_airbnb.usuarios (nome, email, senha ,telefone , cidade , estado , pais) values (:nome, :email , :senha, :telefone, :cidade, :estado, :pais)");
+                $sql = $minhaConexao->prepare("insert into bd_airbnb.usuarios (nome, email, senha ,telefone ,pais) values (:nome, :email , :senha, :telefone, :pais)");
                 $sql->bindParam("nome",$nome);
                 $sql->bindParam("email",$email);
                 $sql->bindParam("senha",$senha);
                 $sql->bindParam("telefone",$telefone);
-                $sql->bindParam("cidade",$cidade);
-                $sql->bindParam("estado",$estado);
                 $sql->bindParam("pais",$pais);
+                $imagem = $usuario->getImagem();
                 $nome = $usuario->getNome();
                 $email = $usuario->getEmail();
                 $senha = $usuario->getSenha();
                 $telefone = $usuario->getTelefone();
-                $cidade = $usuario->getCidade();
-                $estado = $usuario->getEstado();
                 $pais = $usuario->getPais();
                 $sql->execute();
      
                 $last_id = $minhaConexao->lastInsertId();
                 $usuario->setId($last_id);
-                // $imagem = $liv->getImagem();  
-                // if($imagem != NULL) {
-                //   echo "entrou no if da imagem !=null";
-                //  $nomeFinal = $last_id.'.jpg';               
-                //  if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
-                //     $sql = $minhaConexao->prepare("update bd_airbnb.usuarios set imagem = :imagem where codigo = :codigo");
-                //     $sql->bindParam("imagem",$nomeFinal);
-                //     $sql->bindParam("codigo",$last_id);
-                //     $sql->execute();
-                //   }
-                // }
+                
+                $imagem = $usuario->getImagem();  
+                if($imagem != NULL) {
+                  echo "entrou no if da imagem !=null";
+                 $nomeFinal = $last_id.'.jpg';               
+                 if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
+                    $sql = $minhaConexao->prepare("update bd_airbnb.usuarios set imagem = :imagem where idusuarios = :idusuarios");
+                    $sql->bindParam("imagem",$nomeFinal);
+                    $sql->bindParam("idusuarios",$last_id);
+                    $sql->execute();
+                  }
+                }
+
                 return $last_id;
              }
              catch(PDOException $e){
@@ -214,7 +189,7 @@ require_once "Conexao.php";
                 
                 while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
                 $usuario = new Usuario($linha['nome'] , $linha['email'],
-                $linha['senha'] , $linha['telefone'] , $linha['cidade'] , $linha['estado'] ,$linha['pais']);  
+                $linha['senha'] , $linha['telefone'] , $linha['pais']);  
                    
                 $usuario->setId($linha['idusuarios']);
             }
@@ -227,6 +202,19 @@ require_once "Conexao.php";
             echo"entrou no catch".$e->getmessage();
             return 0;
            }
+        }
+
+        public function getImagem()
+        {
+                return $this->imagem;
+        }
+
+
+        public function setImagem($imagem)
+        {
+                $this->imagem = $imagem;
+
+                return $this;
         }
     }
 ?>

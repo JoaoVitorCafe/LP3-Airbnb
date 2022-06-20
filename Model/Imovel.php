@@ -15,9 +15,9 @@ require_once "Conexao.php";
         private $comentarios = array();
         private $alugueis = array() ;
         private $periodos = array() ;
-        // private $imagem;
+        private $imagem;
 
-        function __construct($anfitriao , $cartao_recebimento , $endereco , $capacidade  , $descricao , $tipo , $preco_diaria) {
+        function __construct($anfitriao , $cartao_recebimento , $endereco , $capacidade  , $descricao , $tipo , $preco_diaria , $imagem) {
             $this->anfitriao = $anfitriao;
             $this->cartao_recebimento = $cartao_recebimento;
             $this->endereco = $endereco;
@@ -25,6 +25,7 @@ require_once "Conexao.php";
             $this->descricao = $descricao;
             $this->tipo = $tipo;
             $this->preco_diaria = $preco_diaria;
+            $this->imagem = $imagem;
         }
 
         public function getIdImovel()
@@ -198,7 +199,7 @@ require_once "Conexao.php";
                 $sql->bindParam("cartoes_idcartao",$cartao_recebimento);
                 $capacidade = $imovel->getCapacidade();
                 $descricao = $imovel->getDescricao();
-                $imagem = "teste.jpg";
+                $imagem = $imovel->getImagem();
                 $preco_diaria = $imovel->getPreco_diaria();
                 $endereco = $imovel->getEndereco();
                 $anfitriao = $imovel->getAnfitriao();
@@ -218,17 +219,17 @@ require_once "Conexao.php";
                     $sql->execute();
                 }
                 
-                // $imagem = $liv->getImagem();  
-                // if($imagem != NULL) {
-                //   echo "entrou no if da imagem !=null";
-                //  $nomeFinal = $last_id.'.jpg';               
-                //  if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
-                //     $sql = $minhaConexao->prepare("update bd_airbnb.usuarios set imagem = :imagem where codigo = :codigo");
-                //     $sql->bindParam("imagem",$nomeFinal);
-                //     $sql->bindParam("codigo",$last_id);
-                //     $sql->execute();
-                //   }
-                // }
+                $imagem = $imovel->getImagem();  
+                if($imagem != NULL) {
+                  echo "entrou no if da imagem !=null";
+                 $nomeFinal = $last_id.'.jpg';               
+                 if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
+                    $sql = $minhaConexao->prepare("update bd_airbnb.imoveis set imagem = :imagem where idimoveis = :idimoveis");
+                    $sql->bindParam("imagem",$nomeFinal);
+                    $sql->bindParam("idimoveis",$last_id);
+                    $sql->execute();
+                  }
+                }
                 
                 return $last_id;
              }
@@ -252,7 +253,7 @@ require_once "Conexao.php";
                 
                 while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
                 $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["enderecos_idenderecos"] ,
-                $linha['capacidade'] , $linha['descricao'] , intval($linha['tipos_idtipos']) , $linha['preco_diaria']);  
+                $linha['capacidade'] , $linha['descricao'] , intval($linha['tipos_idtipos']) , $linha['preco_diaria'] ,$linha['imagem'] );  
                 $imovel->setIdImovel($linha['idimoveis']);
                 $imoveis[$i] = $imovel;
                 $i++;
@@ -279,7 +280,7 @@ require_once "Conexao.php";
                 
                 while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
                 $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["enderecos_idenderecos"] ,
-                $linha['capacidade'] , $linha['descricao'] , intval($linha['tipos_idtipos']) , $linha['preco_diaria']);  
+                $linha['capacidade'] , $linha['descricao'] , intval($linha['tipos_idtipos']) , $linha['preco_diaria'],$linha['imagem']);  
                 $imovel->setIdImovel($linha['idimoveis']);
             }
                     
@@ -343,5 +344,25 @@ require_once "Conexao.php";
         }
     
     
+
+        /**
+         * Get the value of imagem
+         */ 
+        public function getImagem()
+        {
+                return $this->imagem;
+        }
+
+        /**
+         * Set the value of imagem
+         *
+         * @return  self
+         */ 
+        public function setImagem($imagem)
+        {
+                $this->imagem = $imagem;
+
+                return $this;
+        }
     }
 ?>

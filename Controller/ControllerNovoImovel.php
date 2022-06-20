@@ -21,7 +21,7 @@ class ControllerNovoImovel{
     $idEndereco = $this->endereco->cadastrar($this->endereco);
    
     $this->imovel = new Imovel($_SESSION["id"] , $idCartao , $idEndereco ,
-    $_POST['capacidade_pessoas'] , $_POST['descricao'] , intval($_POST['tipo_imovel']) , $_POST['preco_locacao']);  
+    $_POST['capacidade_pessoas'] , $_POST['descricao'] , intval($_POST['tipo_imovel']) , $_POST['preco_locacao'] , $_FILES['imagem']);
     
     foreach ($_POST['caracteristicas_imovel'] as $caracteristica)
         $this->imovel->setCaracteristicas(intval($caracteristica));

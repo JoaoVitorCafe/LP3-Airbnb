@@ -41,17 +41,12 @@
           <div class="form-group">
               <label for="inputPais">País</label>
               <input type="text" class="form-control" id="inputPais" placeholder="Brasil" name="pais" required>
-            </div>
-            <div class="campo">
-              <div class="form-group">
-                <label for="inputState">Estado</label>
-                <input type="text" class="form-control" id="inputState" placeholder="Bahia" name="estado" required>
-              </div>
-              <div class="form-group">
-                <label for="inputCity">Cidade</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="Salvador" name="cidade" required>
-              </div>
-            </div>         
+          </div>
+          <div class="form-group">
+              <label for="inputImagem">Imagem de perfil</label>
+              <input type="file" class="form-control" id="inputImagem" name="imagem">
+          </div>
+                 
                 <button type="submit" class="btn btn-success"> Criar conta </button>
           </form>
     </div>
