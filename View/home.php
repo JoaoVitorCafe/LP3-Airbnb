@@ -38,7 +38,7 @@
               <div class="p-2">
                 <span class="round">
                   <a href="PERFIL">
-                      <img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50">
+                      <img src="View/styles/imagens_carrossel/foto_mulher.jpg" alt="user" width="50">
                     </a>
                 </span>
               </div>

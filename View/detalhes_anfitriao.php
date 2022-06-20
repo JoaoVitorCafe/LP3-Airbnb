@@ -31,7 +31,7 @@
                 <div class="p-2">
                 <span class="round">
                     <a href="PERFIL">
-                      <img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50">
+                      <img src="View/styles/imagens_carrossel/foto_mulher.jpg" alt="user" width="50">
                     </a>
                 </span>
               </div>
@@ -153,13 +153,13 @@
         
         <div class="apresentacao">
         
-        <img src="View/styles/imagens_carrossel/casa_pagamento.avif" class="image" alt="">
+        <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
         
-        <img src="View/styles/imagens_carrossel/casa_pagamento.avif" class="image" alt="">
+        <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
 
-        <img src="View/styles/imagens_carrossel/casa_pagamento.avif" class="image" alt="">
+        <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
 
-        <img src="View/styles/imagens_carrossel/casa_pagamento.avif" class="image" alt="">
+        <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
         
         
         </div>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="comment-widgets m-b-20">
                         <div class="d-flex flex-row comment-row">
-                            <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_mulher.avif" alt="user" width="50"></span></div>
+                            <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_mulher.jpg" alt="user" width="50"></span></div>
                             <div class="comment-text w-100">
                                 <h5>Sarah</h5>
                                 <div class="comment-footer"><span class="date">April 14, 2022</span></div>
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div class="d-flex flex-row comment-row ">
-                            <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_homem_pagamento.avif" alt="user" width="50"></span></div>
+                            <div class="p-2"><span class="round"><img src="View/styles/imagens_carrossel/foto_homem_pagamento.jpg" alt="user" width="50"></span></div>
                             <div class="comment-text active w-100">
                                 <h5>John</h5>
                                 <div class="comment-footer"> 

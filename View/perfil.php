@@ -33,7 +33,7 @@
                 <div class="p-2">
                   <span class="round">
                     <a href="PERFIL">
-                      <img src='./LP3-Airbnb/1.jpg' alt="user" width="50">
+                      <img src='View/styles/imagens_carrossel/foto_homem_pagamento.jpg' alt="user" width="50">
                     </a>
                   </span></div>
                 <p> <?php echo $_SESSION['nome'] ?> </p>
@@ -57,7 +57,7 @@
 
               <div class="d-flex flex-wrap">
                 <?php for($i=0;$i<count($imoveis);$i++){ ?>
-                  <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.avif); background-position: center; background-repeat: no-repeat;">
+                  <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
                     <div class="card-body text-center">
                       <h3 class="card-title mb-3"><?php echo $tipos[$i];?></h3>
                       <p class="card-text">

@@ -1,7 +1,7 @@
 <?php
 class Conexao{
     public static function getConexao(){
-        $servername = "localhost:8000"; 
+        $servername = "localhost:3306"; 
         $username = "root";
         $password = "";
         $dbname = "bd_airbnb";
