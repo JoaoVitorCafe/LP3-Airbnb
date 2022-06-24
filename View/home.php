@@ -169,7 +169,10 @@
           <?php foreach ($imoveis as $imovel) {?>
             <div class="card text-light style" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
-                  <h3 class="card-title mb-3"> <?php echo $imovel->getTipo();?></h3>
+                  <?php if ($imovel->getAnuncio()) {?>
+                    <h3 class="text-warning">Destaque</h3>
+                  <?php }?>
+                <h3 class="card-title mb-3"> <?php echo $imovel->getTipo();?></h3>
                   <p class="card-text">
                     <h5><i class="fa-solid fa-person"></i><?php echo $imovel->getCapacidade();?></h5>
                     <h5 class="font-weight-bold "><?php echo $imovel->getEndereco();?></h5>

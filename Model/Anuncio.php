@@ -143,14 +143,13 @@
                     $sql->bindParam("idImovel",$idImovel);
                     $sql->execute();
     
-                    $idImovel = 0;
+                    $anuncio = null;
                     $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
                     while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
-                    $idImovel = $linha['imoveis_idimoveis'];
-                    
+                        $anuncio = new Anuncio($linha['imoveis_idimoveis'] , $linha["cartoes_idcartao"] ,$linha['preco'] , $linha['tipo'], $linha['dataTermino']);
                     }
     
-                    return $idImovel;
+                    return $anuncio;
                 } 
                 
                 catch(PDOException $e){
@@ -159,5 +158,44 @@
                }
             }
 
+            
+            public static function getAnunciados($idSession = 0){
+                try{
+                    $minhaConexao = Conexao::getConexao();
+                    $sql = $minhaConexao->prepare("select * ,
+                    bd_airbnb.anuncios.cartoes_idcartao as cartao_anuncio , bd_airbnb.tipos.nome as tipo_imovel
+                    from ((bd_airbnb.imoveis inner join bd_airbnb.tipos 
+                    on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+                    inner join enderecos 
+                    on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos)
+                    inner join bd_airbnb.anuncios 
+                    on bd_airbnb.anuncios.imoveis_idimoveis = bd_airbnb.imoveis.idimoveis
+                    where usuarios_idusuarios != :idSession");
+                    $sql->bindParam("idSession",$idSession);
+                    $sql->execute();
+                    $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+    
+                    $imoveis=array();
+                    $i=0;
+                    
+                    while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                    $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["cidade"] ,
+                    $linha['capacidade'] , $linha['descricao'] , ($linha['tipo_imovel']) , $linha['preco_diaria'] ,$linha['imagem'] );  
+                    $imovel->setIdImovel($linha['idimoveis']);
+                    $anuncio = new Anuncio($linha['idimoveis'] , $linha["cartao_anuncio"] ,$linha['preco'] , $linha['tipo'], $linha['dataTermino']);
+                    $imovel->setAnuncio($anuncio);
+                    $imoveis[$i] = $imovel;
+                    $i++;
+                }
+                        
+                return $imoveis;
+                
+                }
+    
+               catch(PDOException $e){
+                echo"entrou no catch aasa".$e->getmessage();
+                return 0;
+               }
+            }
     }
 ?>    

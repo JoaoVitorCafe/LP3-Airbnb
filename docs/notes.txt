@@ -39,14 +39,10 @@ DONE*/
     1 - Chamar as acomodações para página home(chamar apenas aquela que não pertencem ao usuário cadastrado, caso não tiver logado chaamar tudo)	
 	2 - Alterar diagrama ERR usuario(estado , cidade);
     3 - IMPLEMENTAR AVISO DE QUE NÃO EXISTE IMOVEIS NO PERFIL;
-
+    10 - Se possível colocar dataTermino na página de detalhes e perfil
 /* DONE
-
     
-
     /*TODO 
-    1 - ADICIONAR INFORMAÇÕES DE PAGAMENTO NO PARTE DO ALUGUEL
-    3 - dar um jeito de chamar os imoveis "premium" aqui;
     5 - Fazer parte de aluguel e comentários.
     4 - Avaliar páginas de detalhes
     Anfitrião
@@ -59,7 +55,6 @@ DONE*/
     locatario - fazer depois da parte de compras
     mostrar página do locatário quando o idsessao for diferente do idusuario do imovel e verificar se o iddoimovel e do usuario estão 
     na mesma tabela alugueis.
-    
     
     2 - FAZER A IMAGEM APARECER.
     10 - REVER FUNCÕES DE PESQUISA.

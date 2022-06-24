@@ -5,6 +5,7 @@ require_once "Model/Usuario.php";
 require_once "Model/Endereco.php";
 require_once "Model/Periodo.php";
 require_once "Model/Comentario.php";
+require_once "Model/Anuncio.php";
 class ControllerDetalhesAnfitriao{
     
     public function processaRequisicao(){
@@ -20,7 +21,13 @@ class ControllerDetalhesAnfitriao{
         $tipo = Imovel::findTipo(intval($imovel->getTipo()));
         $caracteristicas = Imovel::findCaracteristicas(intval($imovel->getIdImovel()));
         $periodos = Periodo::find($_SESSION["idImovel"]);
-        // $anuncios = Anuncio::find(ssessionidmovel);
+        
+        // tratamento de data;
+        $dataTermino = false;
+        if($anuncio = Anuncio::find($_SESSION["idImovel"])){
+            $dataTermino = new DateTime($anuncio->getDataTermino());
+            $dataTermino = $dataTermino->format('d-m-Y');
+        };
         //apenas mostrar o anucio na página se o usuário for o anfitrião
         // $comentarios = Comentarios::find();
         

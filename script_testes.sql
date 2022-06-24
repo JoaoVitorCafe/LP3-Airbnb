@@ -8,6 +8,30 @@ select * from bd_airbnb.imoveis_has_caracteristicas;
 select * from bd_airbnb.anuncios;
 select * from bd_airbnb.periodos where idperiodos = ;
 delete  from bd_airbnb.anuncios;
+select * from bd_airbnb.anuncios where imoveis_idimoveis = 1;
+
+select *, bd_airbnb.tipos.nome as tipo from 
+	((bd_airbnb.imoveis inner join bd_airbnb.tipos 
+	on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+	inner join enderecos 
+	on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos)
+	inner join bd_airbnb.anuncios 
+    on bd_airbnb.anuncios.imoveis_idimoveis = bd_airbnb.imoveis.idimoveis 
+    where usuarios_idusuarios = 1;
+
+select * ,
+bd_airbnb.anuncios.cartoes_idcartao as cartao_anuncio , 
+bd_airbnb.tipos.nome as tipo_imovel from ((bd_airbnb.imoveis inner join bd_airbnb.tipos 
+on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+inner join enderecos 
+on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos)
+inner join bd_airbnb.anuncios 
+on bd_airbnb.anuncios.imoveis_idimoveis = bd_airbnb.imoveis.idimoveis
+where idimoveis = 3;
+
+select * ,bd_airbnb.anuncios.cartoes_idcartao as cartao_anuncio from bd_airbnb.imoveis inner join bd_airbnb.anuncios 
+on bd_airbnb.anuncios.imoveis_idimoveis = bd_airbnb.imoveis.idimoveis
+where idimoveis = 1; 
 
 INSERT INTO `tipos`(`nome`) 
 	VALUES('Quarto'),
