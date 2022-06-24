@@ -43,9 +43,10 @@
                 <li class="nav-item">
                   <a href="LOGOUT" class="nav-link">Sair</a>
                 </li>
-              </div>
             </div>
-            <?php } else {?>
+          </div>
+            
+          <?php } else {?>
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a href="PAGINALOGIN" class="nav-link">Entrar</a>
@@ -55,6 +56,7 @@
               </li>
             </ul>
             <?php } ?>
+        
           </div>
           
         </div>

@@ -64,6 +64,16 @@
 					$controlador = new ControllerPesquisaImovel();
 					$controlador->processaRequisicao();
 					break;
+				case "ANUNCIAR":
+					require "Controller/ControllerAnunciar.php";    
+					$controlador = new ControllerAnunciar();
+					$controlador->processaRequisicao();
+					break;
+				case "ALUGARIMOVEL":
+					require "Controller/ControllerAlugarImovel.php";    
+					$controlador = new ControllerAlugarImovel();
+					$controlador->processaRequisicao();
+					break;
 				default:
 				    require "Controller/ControllerHome.php";
 				    $controlador = new ControllerHome();

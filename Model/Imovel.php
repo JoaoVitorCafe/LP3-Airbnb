@@ -16,6 +16,7 @@ require_once "Conexao.php";
         private $alugueis = array() ;
         private $periodos = array() ;
         private $imagem;
+    
 
         function __construct($anfitriao , $cartao_recebimento , $endereco , $capacidade  , $descricao , $tipo , $preco_diaria , $imagem) {
             $this->anfitriao = $anfitriao;

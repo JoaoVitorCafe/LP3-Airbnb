@@ -5,7 +5,25 @@ select * from bd_airbnb.tipos;
 select * from bd_airbnb.caracteristicas;
 select * from bd_airbnb.imoveis;
 select * from bd_airbnb.imoveis_has_caracteristicas;
+select * from bd_airbnb.anuncios;
 select * from bd_airbnb.periodos where idperiodos = ;
+delete  from bd_airbnb.anuncios;
+
+INSERT INTO `tipos`(`nome`) 
+	VALUES('Quarto'),
+    ('Apartamento'),
+    ('Casa'),
+    ('Fazenda');
+
+
+INSERT INTO `caracteristicas`(`nome`) 
+	VALUES('Cozinha'),
+	('Jacuzzi'),
+	('Refrigerador'),
+	('Camera de segurança'),
+	('Wifi'),
+	('Garagem'),
+	('Alarme de incêndio');
 
 select *, bd_airbnb.tipos.nome as tipo from 
 (bd_airbnb.imoveis inner join bd_airbnb.tipos 
@@ -13,8 +31,15 @@ on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
 inner join enderecos 
 on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos; 
 
+select *, bd_airbnb.tipos.nome as tipo from 
+                (bd_airbnb.imoveis inner join bd_airbnb.tipos 
+                on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+                inner join enderecos 
+                on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos
+                where usuarios_idusuarios = 1;
 
-select * from 
+
+select * , bd_airbnb.tipos.nome as tipo from
 (((bd_airbnb.imoveis inner join bd_airbnb.enderecos 
 on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos) 
 inner join bd_airbnb.periodos 

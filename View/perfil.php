@@ -57,22 +57,26 @@
               </p>
 
               <div class="d-flex flex-wrap">
+              <?php if (!empty($imoveis)) {?> 
                 <?php for($i=0;$i<count($imoveis);$i++){ ?>
-                  <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
-                    <div class="card-body text-center">
-                      <h3 class="card-title mb-3"><?php echo $imoveis[$i]->getTipo();?></h3>
-                      <h5><i class="fa-solid fa-person"></i><?php echo $imoveis[$i]->getCapacidade();?></h5>
-                      <p class="card-text">
-                        <?php echo $imoveis[$i]->getDescricao(); ?>
-                      </p>
-                    <form method="post" action="DETALHESANFITRIAO">
-                      <input type="hidden" name="idImovel" value="<?php echo $imoveis[$i]->getIdImovel();?>">
-                      <button type="submit" class="btn btn-primary">Detalhes</button>
-                    </form>
-                    
+                    <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
+                      <div class="card-body text-center">
+                        <h3 class="card-title mb-3"><?php echo $imoveis[$i]->getTipo();?></h3>
+                        <h5><i class="fa-solid fa-person"></i><?php echo $imoveis[$i]->getCapacidade();?></h5>
+                        <p class="card-text">
+                          <?php echo $imoveis[$i]->getDescricao(); ?>
+                        </p>
+                      <form method="post" action="DETALHESANFITRIAO">
+                        <input type="hidden" name="idImovel" value="<?php echo $imoveis[$i]->getIdImovel();?>">
+                        <button type="submit" class="btn btn-primary">Detalhes</button>
+                      </form>
+                      </div>
                     </div>
-                  </div>
-                  <?php } ?>
+                <?php } ?>
+              <?php } else {?>
+                <h5><?php echo "Sem imóveis cadastrados"?></h5> 
+                <?php }?>
+              
               </div>
         </div>
 

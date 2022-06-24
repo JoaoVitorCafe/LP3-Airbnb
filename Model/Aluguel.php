@@ -9,7 +9,7 @@
         private $checked;
         private $cancelado;
 
-      function __construct($locatario , $imovel , $periodo_inicio , $periodo_fim , $checked) {
+      function __construct($locatario , $imovel , $periodo_inicio , $periodo_fim) {
          $this->locatario = $locatario;
          $this->imovel = $imovel;
          $this->periodo_inicio = $periodo_inicio;

@@ -140,5 +140,28 @@ require_once "Conexao.php";
                 return 0;
              }
         }
+
+        public static function find($numerocartao) {
+            try{  
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select * from bd_airbnb.cartoes where numero = :numero");
+                $sql->bindParam("numero",$numerocartao);
+                $sql->execute();
+
+                $idCartao = 0;
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $idCartao = $linha['idcartao'];
+                
+                }
+
+                return $idCartao;
+            } 
+            
+            catch(PDOException $e){
+                echo"entrou no catch".$e->getmessage();
+                return 0;
+           }
+        }
     }
 ?>    
