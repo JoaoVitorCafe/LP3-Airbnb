@@ -7,6 +7,7 @@
     <title>CoffeeHousing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="View/styles/perfil.css">
 </head>
 <body>
@@ -59,7 +60,8 @@
                 <?php for($i=0;$i<count($imoveis);$i++){ ?>
                   <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
                     <div class="card-body text-center">
-                      <h3 class="card-title mb-3"><?php echo $tipos[$i];?></h3>
+                      <h3 class="card-title mb-3"><?php echo $imoveis[$i]->getTipo();?></h3>
+                      <h5><i class="fa-solid fa-person"></i><?php echo $imoveis[$i]->getCapacidade();?></h5>
                       <p class="card-text">
                         <?php echo $imoveis[$i]->getDescricao(); ?>
                       </p>

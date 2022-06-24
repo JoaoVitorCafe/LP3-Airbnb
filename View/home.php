@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,38 +109,36 @@
       
       <div class="container">
 
-        <form action="" class="d-flex pt-5">
+        <form action="PESQUISAIMOVEL" method="POST" class="d-flex pt-5">
 
           <div class="campo">
             <span>Cidade</span>
-            <input type="text" name="cidade" placeholder="Para onde deseja ir?">
+            <input type="text" name="cidade" placeholder="Para onde deseja ir?" required>
           </div>  
         
           <div class="campo">
             <span>Início da locação</span>
-            <input type="date" name="inicio_locacao">
+            <input type="date" name="inicio_locacao" required>
           </div> 
           
           <div class="campo">
             <span>Fim da locação</span>
-            <input type="date" name="fim_locacao">
+            <input type="date" name="fim_locacao" required>
           </div> 
 
           <div class="campo">
             <span>Quantidade de pessoas</span>
-            <input type="number" placeholder="1" name="quantidade">
+            <input type="number" placeholder="1" name="capacidade" required>
           </div>  
 
-          <select name="tipo" id="">
-            <option selected>Tipo</option>
+          <select name="tipo" required>
             <option value="1">Quarto</option>
             <option value="2">Apartamento</option>
             <option value="3">Casa</option>
             <option value="4">Fazenda</option>
           </select>  
 
-          <select name="caracteristicas" id="">
-            <option selected>Características</option>
+          <select name="caracteristicas_imovel[]" multiple >
             <option value="1">Cozinha</option>
             <option value="2">Jacuzzi</option>
             <option value="3">Refrigerador</option>
@@ -168,82 +163,27 @@
       <section class="p-5">
         <div class="container">
           <div class="d-flex flex-wrap">
-              <div class="card text-light style" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
+          <?php if (!empty($imoveis)) {?> 
+          <?php foreach ($imoveis as $imovel) {?>
+            <div class="card text-light style" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
                 <div class="card-body text-center">
-                  <h3 class="card-title mb-3">Casa</h3>
+                  <h3 class="card-title mb-3"> <?php echo $imovel->getTipo();?></h3>
                   <p class="card-text">
-                    <h5><i class="fa-solid fa-person"></i>5</h5>
-                    <h5 class="font-weight-bold "> Salvador - BA</h5>
+                    <h5><i class="fa-solid fa-person"></i><?php echo $imovel->getCapacidade();?></h5>
+                    <h5 class="font-weight-bold "><?php echo $imovel->getEndereco();?></h5>
                   </p>
-                  <a href="./detalhes.html" class="btn btn-primary">Detalhes</a>
+                  <form method="post" action="DETALHESANFITRIAO">
+                      <input type="hidden" name="idImovel" value="<?php echo $imovel->getIdImovel();?>">
+                      <button type="submit" class="btn btn-primary">Detalhes</button>
+                    </form>
                 </div>
               </div>
+            <?php }?>
+          <?php } else { ?> 
+            <h1><?php echo "Sem imóveis para mostrar"?></h1> 
+          <?php } ?> 
 
-              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
-                <div class="card-body text-center">
-                  <h3 class="card-title mb-3">Casa</h3>
-                  <p class="card-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Iure, quas quidem possimus dolorum esse eligendi?
-                  </p>
-                  <a href="./detalhes.html" class="btn btn-primary">Detalhes</a>
-                </div>
-              </div>
-            
-              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
-                <div class="card-body text-center">
-                  <h3 class="card-title mb-3">Casa</h3>
-                  <p class="card-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Iure, quas quidem possimus dolorum esse eligendi?
-                  </p>
-                  <a href="./detalhes.html" class="btn btn-primary">Detalhes</a>
-                </div>
-              </div>
-            
-              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
-                <div class="card-body text-center">
-                  <h3 class="card-title mb-3">Casa</h3>
-                  <p class="card-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Iure, quas quidem possimus dolorum esse eligendi?
-                  </p>
-                  <a href="./detalhes.html" class="btn btn-primary">Detalhes</a>
-                </div>
-              </div>
-                 
-              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
-                <div class="card-body text-center">
-                  <h3 class="card-title mb-3">Casa</h3>
-                  <p class="card-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Iure, quas quidem possimus dolorum esse eligendi?
-                  </p>
-                  <a href="./detalhes.html" class="btn btn-primary">Detalhes</a>
-                </div>
-              </div>
-                 
-              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
-                <div class="card-body text-center">
-                  <h3 class="card-title mb-3">Casa</h3>
-                  <p class="card-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Iure, quas quidem possimus dolorum esse eligendi?
-                  </p>
-                  <a href="./detalhes.html" class="btn btn-primary">Detalhes</a>
-                </div>
-              </div>
-                    
-              <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
-                <div class="card-body text-center">
-                  <h3 class="card-title mb-3">Casa</h3>
-                  <p class="card-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Iure, quas quidem possimus dolorum esse eligendi?
-                  </p>
-                  <a href="./detalhes.html" class="btn btn-primary">Detalhes</a>
-                </div>
-              </div>
+  
 
             </div>
         </div>

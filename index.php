@@ -59,6 +59,11 @@
 					$controlador = new ControllerCadastroPeriodo();
 					$controlador->processaRequisicao();
 					break;
+				case "PESQUISAIMOVEL":
+					require "Controller/ControllerPesquisaImovel.php";    
+					$controlador = new ControllerPesquisaImovel();
+					$controlador->processaRequisicao();
+					break;
 				default:
 				    require "Controller/ControllerHome.php";
 				    $controlador = new ControllerHome();

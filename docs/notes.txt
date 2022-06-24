@@ -36,24 +36,25 @@ DONE*/
     5 - Como conectar perídos ao imovel?("usar input hidden pra passar o id do imóvel q clicou")
 */DONE
 
-
-
-
-/*TODO 
-    1 - Chamar as acomodações para página home(chamar apenas aquela que não pertencem ao usuário cadastrado, caso não tiver logado chaamar tudo)
-
-	2- FAZER A IMAGEM APARECER.
+    1 - Chamar as acomodações para página home(chamar apenas aquela que não pertencem ao usuário cadastrado, caso não tiver logado chaamar tudo)	
 	2 - Alterar diagrama ERR usuario(estado , cidade);
-    
-    2 - Criar função de pesquisa.
-    
+
+/* DONE
+
+    /*TODO 
+
+    3 - REVER FUNCÕES DE PESQUISA.
+    3 - IMPLEMENTAR AVISO DE QUE NÃO EXISTE IMOVEIS NO PERFIL;
+    3 - VER ERRO NOS DETALHES QUANDO NÃO TEM USERSESSION;
+
     3 - Revisar lógica dos anuncios e fazer
     usar funcao explode para sepaar a string q vem no value
     http://devfuria.com.br/php/manipulando-radio-button-com-php/
     https://www.devmedia.com.br/manipulando-datas-com-php/32966
     https://www.w3schools.com/php/func_string_explode.asp
     Pagamento do anuncio(com que cartão?)(solução puxar a página de pagamentos)
-    
+
+    2- FAZER A IMAGEM APARECER.
     4 - Avaliar páginas de detalhes
     Anfitrião
     Mostrar pagar para divulgar e cadastrar períodos quando o usuário tiver com sessão e o idusuario do imóvel for igual ao id da sessão

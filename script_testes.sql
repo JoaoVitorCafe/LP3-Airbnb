@@ -5,7 +5,31 @@ select * from bd_airbnb.tipos;
 select * from bd_airbnb.caracteristicas;
 select * from bd_airbnb.imoveis;
 select * from bd_airbnb.imoveis_has_caracteristicas;
-select * from bd_airbnb.periodos;
+select * from bd_airbnb.periodos where idperiodos = ;
+
+select *, bd_airbnb.tipos.nome as tipo from 
+(bd_airbnb.imoveis inner join bd_airbnb.tipos 
+on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+inner join enderecos 
+on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos; 
+
+
+select * from 
+(((bd_airbnb.imoveis inner join bd_airbnb.enderecos 
+on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos) 
+inner join bd_airbnb.periodos 
+on bd_airbnb.periodos.imoveis_idimoveis =  bd_airbnb.imoveis.idimoveis)
+inner join bd_airbnb.tipos 
+on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+inner join imoveis_has_caracteristicas 
+on imoveis.idimoveis =  imoveis_has_caracteristicas.imoveis_idimoveis
+where cidade = '' 
+or inicio = '' 
+or fim = ''
+or capacidade = '' 
+or tipos_idtipos = '' 
+or caracteristicas_idcaracteristicas in (1 , 2 ,3);
+
 
 select * from bd_airbnb.imoveis_has_caracteristicas inner join bd_airbnb.caracteristicas 
 on bd_airbnb.imoveis_has_caracteristicas.caracteristicas_idcaracteristicas = bd_airbnb.caracteristicas.idcaracteristicas

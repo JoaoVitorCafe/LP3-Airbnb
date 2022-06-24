@@ -120,7 +120,7 @@ require_once "Conexao.php";
                 
                 $cep = $endereco->getCep();
                 $rua = $endereco->getRua();
-                $cidade = $endereco->getCidade();
+                $cidade = strtoupper($endereco->getCidade());
                 $estado = $endereco->getEstado();
                 $pais = $endereco->getPais();
                 $numero = $endereco->getNumero();

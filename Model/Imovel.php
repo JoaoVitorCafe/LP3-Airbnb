@@ -239,10 +239,50 @@ require_once "Conexao.php";
              }
         }
 
+        
+        public static function getAll($idSession = 0){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select *, bd_airbnb.tipos.nome as tipo from 
+                (bd_airbnb.imoveis inner join bd_airbnb.tipos 
+                on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+                inner join enderecos 
+                on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos
+                where usuarios_idusuarios != :idSession");
+                $sql->bindParam("idSession",$idSession);
+                $sql->execute();
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+                $imoveis=array();
+                $i=0;
+                
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["cidade"] ,
+                $linha['capacidade'] , $linha['descricao'] , ($linha['tipo']) , $linha['preco_diaria'] ,$linha['imagem'] );  
+                $imovel->setIdImovel($linha['idimoveis']);
+                $imoveis[$i] = $imovel;
+                $i++;
+            }
+                    
+            return $imoveis;
+            
+            }
+
+           catch(PDOException $e){
+            echo"entrou no catch aasa".$e->getmessage();
+            return 0;
+           }
+        }
+
         public static function buscarImoveisCadastrados($id){
             try{
                 $minhaConexao = Conexao::getConexao();
-                $sql = $minhaConexao->prepare("select * from bd_airbnb.imoveis where usuarios_idusuarios = :id");
+                $sql = $minhaConexao->prepare("select *, bd_airbnb.tipos.nome as tipo from 
+                (bd_airbnb.imoveis inner join bd_airbnb.tipos 
+                on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+                inner join enderecos 
+                on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos
+                where usuarios_idusuarios = :id");
                 $sql->bindParam("id",$id);
             
                 $sql->execute();
@@ -252,8 +292,8 @@ require_once "Conexao.php";
                 $i=0;
                 
                 while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
-                $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["enderecos_idenderecos"] ,
-                $linha['capacidade'] , $linha['descricao'] , intval($linha['tipos_idtipos']) , $linha['preco_diaria'] ,$linha['imagem'] );  
+                $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["cidade"] ,
+                $linha['capacidade'] , $linha['descricao'] , ($linha['tipo']) , $linha['preco_diaria'] ,$linha['imagem'] );  
                 $imovel->setIdImovel($linha['idimoveis']);
                 $imoveis[$i] = $imovel;
                 $i++;
@@ -342,7 +382,60 @@ require_once "Conexao.php";
             return 0;
            }
         }
-    
+
+        public static function filtrar($post){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = $minhaConexao->prepare("select * , bd_airbnb.tipos.nome as tipo from
+                (((bd_airbnb.imoveis inner join bd_airbnb.enderecos 
+                on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos) 
+                inner join bd_airbnb.periodos 
+                on bd_airbnb.periodos.imoveis_idimoveis =  bd_airbnb.imoveis.idimoveis)
+                inner join bd_airbnb.tipos 
+                on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+                inner join imoveis_has_caracteristicas 
+                on imoveis.idimoveis =  imoveis_has_caracteristicas.imoveis_idimoveis
+                where cidade = :cidade
+                or inicio = :inicio 
+                or fim = :fim
+                and capacidade = :capacidade 
+                and tipos_idtipos = :tipo
+                group by idimoveis;");
+
+                $sql->bindParam("cidade",$cidade);
+                $sql->bindParam("inicio",$inicio);
+                $sql->bindParam("fim",$fim);
+                $sql->bindParam("capacidade",$capacidade);
+                $sql->bindParam("tipo",$tipo);
+                $cidade = strtoupper($post["cidade"]);
+                $inicio =$post["inicio_locacao"];
+                $fim = $post["fim_locacao"];
+                $capacidade = $post["capacidade"];
+                $tipo = $post["tipo"];
+                
+                $sql->execute();
+                $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+                
+                $imoveis=array();
+                $i=0;
+                
+                while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $imovel = new Imovel($linha["usuarios_idusuarios"] , $linha["cartoes_idcartao"] , $linha["cidade"] ,
+                $linha['capacidade'] , $linha['descricao'] , ($linha['tipo']) , $linha['preco_diaria'] ,$linha['imagem'] );  
+                $imovel->setIdImovel($linha['idimoveis']);
+                $imoveis[$i] = $imovel;
+                $i++;
+                }
+                    
+                return $imoveis;
+            
+            }
+
+           catch(PDOException $e){
+            echo"entrou no catch".$e->getmessage();
+            return 0;
+           }
+        }
     
 
         /**

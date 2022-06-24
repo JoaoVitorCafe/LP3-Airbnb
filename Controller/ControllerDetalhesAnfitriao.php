@@ -9,6 +9,7 @@ class ControllerDetalhesAnfitriao{
     
     public function processaRequisicao(){
 
+        // Guarda o imóvel para quando o usuário cadastrar periodos ele voltar pra mesma página de detalhes com os dados do imóvel
         if(isset($_POST['idImovel'])) {
             $_SESSION["idImovel"] = $_POST['idImovel'];
         }
