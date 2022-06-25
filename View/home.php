@@ -35,7 +35,7 @@
               <div class="p-2">
                 <span class="round">
                   <a href="PERFIL">
-                      <img src="View/styles/imagens_carrossel/foto_mulher.jpg" alt="user" width="50">
+                      <img src="<?php echo $_SESSION['id'].'.jpg'; ?>" alt="FotoUsuario" width="50">
                     </a>
                 </span>
               </div>
@@ -167,7 +167,7 @@
           <div class="d-flex flex-wrap">
           <?php if (!empty($imoveis)) {?> 
           <?php foreach ($imoveis as $imovel) {?>
-            <div class="card text-light style" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg);">
+            <div class="card text-light style" style="background-image: url('<?php echo $imovel->getImagem(); ?>');">
                 <div class="card-body text-center">
                   <?php if ($imovel->getAnuncio()) {?>
                     <h3 class="text-warning">Destaque</h3>

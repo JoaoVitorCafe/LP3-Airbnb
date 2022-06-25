@@ -31,7 +31,7 @@
           <div class="p-2">
             <span class="round">
               <a href="PERFIL">
-                <img src='View/styles/imagens_carrossel/foto_homem_pagamento.jpg' alt="user" width="50">
+                <img src="<?php echo $_SESSION['id'].'.jpg'; ?>" alt="user" width="50">
               </a>
             </span>
           </div>
@@ -57,7 +57,7 @@
       <div class="d-flex flex-wrap">
         <?php if (!empty($imoveisCadastrados)) { ?>
           <?php for ($i = 0; $i < count($imoveisCadastrados); $i++) { ?>
-            <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
+            <div class="card text-light" style="background-image: url('<?php echo $imoveisCadastrados[$i]->getImagem(); ?>'); background-position: center; background-repeat: no-repeat;">
               <div class="card-body text-center">
                 <?php if ($imoveisCadastrados[$i]->getAnuncio()) { ?>
                   <h3 class="text-warning">Destaque</h3>
@@ -91,7 +91,7 @@
       <div class="d-flex flex-wrap">
         <?php if (!empty($alugueis)) { ?>
           <?php for ($i = 0; $i < count($alugueis); $i++) { ?>
-            <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
+            <div class="card text-light" style="background-image: url('<?php echo $alugueis[$i]->getImovel()->getImagem(); ?>'); background-position: center; background-repeat: no-repeat;">
               <div class="card-body text-center">
                 <?php if ($alugueis[$i]->getCancelado()){ ?>
                   <h3 class="text-danger">Cancelado</h3>

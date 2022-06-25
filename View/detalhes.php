@@ -29,7 +29,7 @@
             <div class="p-2">
               <span class="round">
                 <a href="PERFIL">
-                  <img src="View/styles/imagens_carrossel/foto_mulher.jpg" alt="user" width="50">
+                  <img src="<?php echo $_SESSION['id'].'.jpg'; ?>" alt="user" width="50">
                 </a>
               </span>
             </div>
@@ -351,13 +351,11 @@
 
     <div class="apresentacao">
 
-      <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
+      <?php for($i = 0 ; $i < 4 ; $i++) {?>
+        <img src='<?php echo $imovel->getImagem(); ?>' class="image" alt="">
+      <?php } ?>
 
-      <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
-
-      <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
-
-      <img src="View/styles/imagens_carrossel/casa_pagamento.jpg" class="image" alt="">
+     
 
 
     </div>

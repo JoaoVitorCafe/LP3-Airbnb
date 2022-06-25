@@ -10,7 +10,7 @@
 </head>
 <body>  
     <div class="overlay">
-    <form class="d-flex flex-wrap justify-content-around align-items-center" style="text-align: center;" method="post" action="NOVOIMOVEL">
+    <form name="form-imovel" class="d-flex flex-wrap justify-content-around align-items-center" style="text-align: center;" method="POST" action="NOVOIMOVEL" enctype="multipart/form-data">
         
         <div class="box">
         <h1>Dados do cartão de crédito</h1>  
@@ -92,7 +92,7 @@
               
               <div class="form-group">
                 <label for="imagem">Imagem do imovel</label>
-                <input type="file" id="imagem" name="imagem">
+                <input type="file" class="form-control" id="inputImagem" name="imagem" required>
               </div>
               
               <div class="form-group">

@@ -225,7 +225,7 @@ class Imovel
             $imagem = $imovel->getImagem();
             if ($imagem != NULL) {
                 echo "entrou no if da imagem !=null";
-                $nomeFinal = $last_id . '.jpg';
+                $nomeFinal = $last_id . 'image.jpg';
                 if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
                     $sql = $minhaConexao->prepare("update bd_airbnb.imoveis set imagem = :imagem where idimoveis = :idimoveis");
                     $sql->bindParam("imagem", $nomeFinal);
