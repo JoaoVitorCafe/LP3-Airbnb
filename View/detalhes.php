@@ -345,6 +345,31 @@
           <div class="card-body">
             <h4 class="card-title">Recent Comments</h4>
             <h6 class="card-subtitle">Latest Comments section by users</h6>
+            <?php if ((isset($_SESSION['id']) and $_SESSION['id'] == $idLocatario)) { ?>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#commentBackdrop">
+                Adicionar comentário
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="commentBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="commentLabel">Adicione um comentário</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="">
+                        <textarea name="comentario" id="comentario" cols="30" rows="10" class="form-control" placeholder="Escreva algo aqui..."></textarea>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
+
           </div>
           <div class="comment-widgets m-b-20">
             <div class="d-flex flex-row comment-row">
