@@ -55,14 +55,16 @@ DONE*/
     2 - Fazer checkin e cancelar;
     3 - Aparecer status na página de detalhes;
     3 - Fazer todo o processo dos periodos(tirar aqueles que já foram escolhidos através do atributo "emUso");
+    10 - REVER FUNCÕES DE PESQUISA ;
+    2 - FAZER A IMAGEM APARECER;
 
 /* DONE
+    
     /*TODO 
-    2 - FAZER A IMAGEM APARECER;
-    5 - Fazer comentários;
-    10 - REVER FUNCÕES DE PESQUISA e destaque em imoveis;
-    10 - Proteger acesso as paginas
-    10 - Resolver problemas do css na pagina de detalhes;
+    #5 -  Fazer comentários;
+    #1-   destaque em imoveis
+    #10 - Proteger acesso as paginas
+    #10 - Resolver problemas do css na pagina de detalhes;
     /*TODO 
 
 ## Problemas 

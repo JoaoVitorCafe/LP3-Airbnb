@@ -7,15 +7,17 @@ require_once "Model/Periodo.php";
 require_once "Model/Comentario.php";
 require_once "Model/Anuncio.php";
 require_once "Model/Aluguel.php";
-class ControllerDetalhes{
-    
-    public function processaRequisicao(){
+class ControllerDetalhes
+{
+
+    public function processaRequisicao()
+    {
 
         // Guarda o imóvel para quando o usuário cadastrar periodos ele voltar pra mesma página de detalhes com os dados do imóvel
-        if(isset($_POST['idImovel'])) {
+        if (isset($_POST['idImovel'])) {
             $_SESSION["idImovel"] = $_POST['idImovel'];
         }
-        
+
         $imovel = Imovel::find(intval($_SESSION["idImovel"]));
         $anfitriao = Usuario::find(intval($imovel->getAnfitriao()));
         $endereco = Endereco::find(intval($imovel->getEndereco()));
@@ -24,8 +26,8 @@ class ControllerDetalhes{
         $periodosImovel = Periodo::find($_SESSION["idImovel"]);
         $periodos = array();
         foreach ($periodosImovel as $periodo) {
-            if(!$periodo->getEmUso()){
-                array_push($periodos , $periodo);
+            if (!$periodo->getEmUso()) {
+                array_push($periodos, $periodo);
             }
         }
 
@@ -34,7 +36,7 @@ class ControllerDetalhes{
         $cancelado = 0;
         $idAluguel = 0;
         $periodoAluguel = 0;
-        if(isset($_POST['idAluguel'])) {
+        if (isset($_POST['idAluguel'])) {
             $_SESSION["idAluguel"] = $_POST['idAluguel'];
             $aluguel = Aluguel::getAlugueisImovel($_SESSION["idAluguel"]);
             $idLocatario = $aluguel->getLocatario();
@@ -47,17 +49,14 @@ class ControllerDetalhes{
         // tratamento de data;
         $dataTermino = false;
         $anunciado = false;
-        if($anuncio = Anuncio::find($_SESSION["idImovel"])){
+        if ($anuncio = Anuncio::find($_SESSION["idImovel"])) {
             $anunciado = true;
             $dataTermino = new DateTime($anuncio->getDataTermino());
             $dataTermino = $dataTermino->format('d-m-Y');
         };
         //apenas mostrar o anucio na página se o usuário for o anfitrião
         // $comentarios = Comentarios::find();
-        
+
         require "View/detalhes.php";
     }
 }
-    
-    
-?>
