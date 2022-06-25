@@ -33,6 +33,7 @@ class ControllerDetalhes{
         $checked = 0;
         $cancelado = 0;
         $idAluguel = 0;
+        $periodoAluguel = 0;
         if(isset($_POST['idAluguel'])) {
             $_SESSION["idAluguel"] = $_POST['idAluguel'];
             $aluguel = Aluguel::getAlugueisImovel($_SESSION["idAluguel"]);
@@ -40,12 +41,14 @@ class ControllerDetalhes{
             $checked = $aluguel->getChecked();
             $cancelado = $aluguel->getCancelado();
             $idAluguel = $aluguel->getIdAluguel();
+            $periodoAluguel = $aluguel->getPeriodo()->format();
         }
-        
 
         // tratamento de data;
         $dataTermino = false;
+        $anunciado = false;
         if($anuncio = Anuncio::find($_SESSION["idImovel"])){
+            $anunciado = true;
             $dataTermino = new DateTime($anuncio->getDataTermino());
             $dataTermino = $dataTermino->format('d-m-Y');
         };

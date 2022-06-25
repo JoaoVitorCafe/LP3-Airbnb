@@ -413,8 +413,8 @@ class Imovel
                 inner join imoveis_has_caracteristicas 
                 on imoveis.idimoveis =  imoveis_has_caracteristicas.imoveis_idimoveis
                 where cidade = :cidade
-                or inicio = :inicio 
-                or fim = :fim
+                and inicio = :inicio 
+                and fim = :fim
                 and capacidade = :capacidade 
                 and tipos_idtipos = :tipo
                 group by idimoveis;");

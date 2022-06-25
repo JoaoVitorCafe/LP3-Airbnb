@@ -9,6 +9,19 @@ select * from bd_airbnb.anuncios;
 select * from bd_airbnb.periodos ;
 select *  from bd_airbnb.alugueis;
 select * from bd_airbnb.anuncios where imoveis_idimoveis = 1;
+update bd_airbnb.periodos set emUso = 1 where bd_airbnb.periodos.idperiodos = 2; 
+select * from bd_airbnb.alugueis; 
+
+select *, bd_airbnb.imoveis.usuarios_idusuarios as anfitriao,
+bd_airbnb.tipos.nome as tipo from ((((bd_airbnb.imoveis
+inner join bd_airbnb.alugueis 
+on bd_airbnb.alugueis.imoveis_idimoveis = bd_airbnb.imoveis.idimoveis)
+inner join enderecos 
+on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos)
+inner join bd_airbnb.tipos 
+on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos) 
+inner join periodos on bd_airbnb.alugueis.periodos_idperiodos = bd_airbnb.periodos.idperiodos)
+where idalugueis = 1;
 
 select *, bd_airbnb.imoveis.usuarios_idusuarios as anfitriao,
             bd_airbnb.tipos.nome as tipo from (((bd_airbnb.imoveis

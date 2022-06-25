@@ -29,7 +29,7 @@ class ControllerAlugarImovel
         $this->aluguel = new Aluguel($_POST["idImovel"], $_POST["periodo"], $_SESSION["id"], $idCartao);
         $idAluguel = $this->aluguel->cadastrar($this->aluguel);
         if($idAluguel) {
-            Periodo::reservarPeriodo($this->aluguel->getPeriodo());
+            Periodo::setUso($this->aluguel->getPeriodo() , 1);
         }
 
         header('Location: DETALHES', true ,302);

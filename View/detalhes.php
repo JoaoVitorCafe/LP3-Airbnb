@@ -91,12 +91,16 @@
             <h6 class="m-2"><?php echo "Sem periodos disponíveis" ?></h6>
           <?php } ?>
 
+          <?php if($periodoAluguel){ ?>
+              <h6 class="text-success">Alugado no perido de <?php echo $periodoAluguel?></h6>
+          <?php } ?>
+
           <h6>Diária</h6>
           <h6>R$<?php echo $imovel->getPreco_diaria(); ?></h6>
 
           <?php foreach ($caracteristicas as $caracteristica) { ?>
             <p> <?php echo $caracteristica; ?></p>
-          <?php } ?>
+          <?php } ?>  
 
           <?php if($checked){ ?>
               <h6 class="text-success m-2"> <?php echo "Você fez check-in nessa locacao"?> </h6>
@@ -109,7 +113,8 @@
           <div class="d-flex justify-content-between">
             <?php if (isset($_SESSION['id']) and $_SESSION['id'] == $imovel->getAnfitriao()) { ?>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#anuncioModal">
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#anuncioModal"
+              <?php echo ($anunciado) ? "disabled" : "" ?>>
                 Pagar para divulgar
               </button>
 

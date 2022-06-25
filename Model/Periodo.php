@@ -156,15 +156,14 @@ require_once "Conexao.php";
                }
             }
 
-            public static function reservarPeriodo($id){
+            public static function setUso($id , $status){
                 try{
                     $resultado = 0;    
                     $minhaConexao = Conexao::getConexao();
                     $sql = $minhaConexao->prepare("update bd_airbnb.periodos 
                     set emUso = :emUso where bd_airbnb.periodos.idperiodos = :id");
                     $sql->bindParam("id",$id);
-                    $sql->bindParam("emUso",$emUso);
-                    $emUso = 1;    
+                    $sql->bindParam("emUso",$status);   
 
                     $resultado = $sql->execute();
                     

@@ -1,5 +1,6 @@
 <?php
 require_once "Model/Imovel.php";
+require_once "Model/Periodo.php";
     Class Aluguel
     {
       private $idAluguel;
@@ -223,13 +224,16 @@ require_once "Model/Imovel.php";
         try {
             $minhaConexao = Conexao::getConexao();
             $sql = $minhaConexao->prepare("select *, bd_airbnb.imoveis.usuarios_idusuarios as anfitriao,
-            bd_airbnb.tipos.nome as tipo from (((bd_airbnb.imoveis
+            bd_airbnb.tipos.nome as tipo , bd_airbnb.periodos.imoveis_idimoveis as imovelPeriodo 
+            from ((((bd_airbnb.imoveis
             inner join bd_airbnb.alugueis 
             on bd_airbnb.alugueis.imoveis_idimoveis = bd_airbnb.imoveis.idimoveis)
             inner join enderecos 
             on bd_airbnb.enderecos.idenderecos = bd_airbnb.imoveis.enderecos_idenderecos)
             inner join bd_airbnb.tipos 
             on bd_airbnb.tipos.idtipos = bd_airbnb.imoveis.tipos_idtipos)
+            inner join periodos
+            on bd_airbnb.alugueis.periodos_idperiodos = bd_airbnb.periodos.idperiodos)
             where idalugueis = :idAluguel");
             $sql->bindParam("idAluguel", $idAluguel);
 
@@ -247,8 +251,11 @@ require_once "Model/Imovel.php";
                     $linha['preco_diaria'],
                     $linha['imagem']
                 );
+                $periodo = new Periodo($linha['imovelPeriodo'] , $linha['inicio'] , $linha['fim']);
+                $periodo->setIdPeriodo($linha["idperiodos"]) ;
+                $periodo->setEmUso($linha["emUso"]);
                 $imovel->setIdImovel($linha['idimoveis']);
-                $aluguel = new Aluguel($imovel, $linha["periodos_idperiodos"], $linha["locatario"], $linha["cartao"]);
+                $aluguel = new Aluguel($imovel, $periodo, $linha["locatario"], $linha["cartao"]);
                 $aluguel->setIdAluguel($linha["idalugueis"]);                
                 $aluguel->setChecked($linha["checked"]); 
                 $aluguel->setCancelado($linha["cancelado"]); 
@@ -295,6 +302,34 @@ require_once "Model/Imovel.php";
             $resultado = $sql->execute();
             
             return $resultado;
+        }
+
+       catch(PDOException $e){
+        echo"entrou no catch".$e->getmessage();
+        return 0;
+       }
+    }
+
+    public static function find($id){
+        try{
+            $minhaConexao = Conexao::getConexao();
+            $sql = $minhaConexao->prepare("select * from bd_airbnb.alugueis where idalugueis = :id");
+            $sql->bindParam("id",$id);
+            $status = 1;
+        
+            $sql->execute();
+            $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+            
+            
+            while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $aluguel = new Aluguel($linha["imoveis_idimoveis"], $linha["periodos_idperiodos"], $linha["idalugueis"], $linha["cartao"]);
+                $aluguel->setIdAluguel($linha["idalugueis"]);                
+                $aluguel->setChecked($linha["checked"]); 
+                $aluguel->setCancelado($linha["cancelado"]); 
+            }   
+                
+        return $aluguel;
+        
         }
 
        catch(PDOException $e){

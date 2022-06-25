@@ -22,11 +22,11 @@ class ControllerNovoUser
  
       $idUsuario = $this->usuario->cadastrar($this->usuario);
 
-      if ($idUsuario and isset($_SESSION["idImovel"])) {
+      if (($idUsuario and isset($_SESSION["idImovel"]))) {
          $_SESSION["id"] = $this->usuario->getId();
          $_SESSION["nome"] = $this->usuario->getNome();
          $_SESSION["imagem"] = $this->usuario->getImagem();
-            header('Location: DETALHES', true, 302);
+         header('Location: DETALHES', true, 302);
       } else if ($idUsuario) {
          $_SESSION["id"] = $this->usuario->getId();
          $_SESSION["nome"] = $this->usuario->getNome();
