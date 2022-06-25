@@ -74,10 +74,20 @@
 					$controlador = new ControllerAlugarImovel();
 					$controlador->processaRequisicao();
 					break;
+				case "CHECKIN":
+					require "Controller/ControllerCheck.php";    
+					$controlador = new ControllerCheck();
+					$controlador->processaRequisicao();
+					break;
+				case "CANCELARLOCACAO":
+					require "Controller/ControllerCancelarLocacao.php";    
+					$controlador = new ControllerCancelarLocacao();
+					$controlador->processaRequisicao();
+					break;
 				default:
-				    require "Controller/ControllerHome.php";
-				    $controlador = new ControllerHome();
-				    $controlador->processaRequisicao();
+				require "Controller/ControllerHome.php";
+				$controlador = new ControllerHome();
+				$controlador->processaRequisicao();
 				    break;
 				}
 		} else                     //senão, vai para uma página padrão, neste caso a home do site

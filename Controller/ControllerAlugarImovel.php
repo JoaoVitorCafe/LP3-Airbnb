@@ -1,8 +1,9 @@
 <?php
 session_start();
-require "Model/Cartao.php";
-require "Model/Imovel.php";
-require "Model/Aluguel.php";
+require_once "Model/Cartao.php";
+require_once "Model/Imovel.php";
+require_once "Model/Aluguel.php";
+require_once "Model/Periodo.php";
 
 class ControllerAlugarImovel
 {
@@ -27,6 +28,9 @@ class ControllerAlugarImovel
 
         $this->aluguel = new Aluguel($_POST["idImovel"], $_POST["periodo"], $_SESSION["id"], $idCartao);
         $idAluguel = $this->aluguel->cadastrar($this->aluguel);
+        if($idAluguel) {
+            Periodo::reservarPeriodo($this->aluguel->getPeriodo());
+        }
 
         header('Location: DETALHES', true ,302);
     }

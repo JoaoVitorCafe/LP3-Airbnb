@@ -205,6 +205,8 @@ require_once "Model/Imovel.php";
                 $imovel->setIdImovel($linha['idimoveis']);
                 $aluguel = new Aluguel($imovel, $linha["periodos_idperiodos"], $linha["locatario"], $linha["cartao"]);
                 $aluguel->setIdAluguel($linha["idalugueis"]);
+                $aluguel->setChecked($linha["checked"]); 
+                $aluguel->setCancelado($linha["cancelado"]); 
                 $alugueis[$i] = $aluguel;
                 $i++;
             }
@@ -248,7 +250,9 @@ require_once "Model/Imovel.php";
                 $imovel->setIdImovel($linha['idimoveis']);
                 $aluguel = new Aluguel($imovel, $linha["periodos_idperiodos"], $linha["locatario"], $linha["cartao"]);
                 $aluguel->setIdAluguel($linha["idalugueis"]);                
-            }
+                $aluguel->setChecked($linha["checked"]); 
+                $aluguel->setCancelado($linha["cancelado"]); 
+        }
 
             return $aluguel;
         } catch (PDOException $e) {
@@ -256,6 +260,50 @@ require_once "Model/Imovel.php";
             return 0;
         }
     }
+
+    public static function check($id){
+        try{
+            $resultado = 0;    
+            $minhaConexao = Conexao::getConexao();
+            $sql = $minhaConexao->prepare("update bd_airbnb.alugueis 
+            set checked = :checked where bd_airbnb.alugueis.idalugueis = :id");
+            $sql->bindParam("id",$id);
+            $sql->bindParam("checked",$checked);
+            $checked = 1;    
+
+            $resultado = $sql->execute();
+            
+            return $resultado;
+        }
+
+       catch(PDOException $e){
+        echo"entrou no catch".$e->getmessage();
+        return 0;
+       }
+    }
+
+    public static function cancelar($id){
+        try{
+            $resultado = 0;    
+            $minhaConexao = Conexao::getConexao();
+            $sql = $minhaConexao->prepare("update bd_airbnb.alugueis 
+            set cancelado = :cancelado where bd_airbnb.alugueis.idalugueis = :id");
+            $sql->bindParam("id",$id);
+            $sql->bindParam("cancelado",$cancelado);
+            $cancelado = 1;    
+
+            $resultado = $sql->execute();
+            
+            return $resultado;
+        }
+
+       catch(PDOException $e){
+        echo"entrou no catch".$e->getmessage();
+        return 0;
+       }
+    }
+
+
 
 
       /**

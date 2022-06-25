@@ -93,8 +93,8 @@
           <?php for ($i = 0; $i < count($alugueis); $i++) { ?>
             <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
               <div class="card-body text-center">
-                <?php if ($alugueis[$i]->getImovel()->getAnuncio()) { ?>
-                  <h3 class="text-warning">Destaque</h3>
+                <?php if ($alugueis[$i]->getCancelado()){ ?>
+                  <h3 class="text-danger">Cancelado</h3>
                 <?php } ?>
                 <h3 class="card-title mb-3"><?php echo $alugueis[$i]->getImovel()->getTipo(); ?></h3>
                 <h5><i class="fa-solid fa-person"></i><?php echo $alugueis[$i]->getImovel()->getCapacidade(); ?></h5>

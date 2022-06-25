@@ -83,8 +83,12 @@
           <p><?php echo $endereco->format(); ?></p>
 
           <h6>Períodos disponiveis</h6>
-          <?php foreach ($periodos as $periodo) { ?>
-            <p><?php echo $periodo->format(); ?></p>
+          <?php if (!empty($periodos)) { ?>
+            <?php foreach ($periodos as $periodo) { ?>
+              <p><?php echo $periodo->format(); ?></p>
+            <?php } ?>
+          <?php } else { ?>
+            <h6 class="m-2"><?php echo "Sem periodos disponíveis" ?></h6>
           <?php } ?>
 
           <h6>Diária</h6>
@@ -92,6 +96,14 @@
 
           <?php foreach ($caracteristicas as $caracteristica) { ?>
             <p> <?php echo $caracteristica; ?></p>
+          <?php } ?>
+
+          <?php if($checked){ ?>
+              <h6 class="text-success m-2"> <?php echo "Você fez check-in nessa locacao"?> </h6>
+          <?php } ?>
+          
+          <?php if($cancelado){ ?>
+              <h6 class="text-danger m-2">Você cancelou essa locacao</h6>
           <?php } ?>
 
           <div class="d-flex justify-content-between">
@@ -196,7 +208,8 @@
                 </div>
               </div>
             <?php } else if ((isset($_SESSION['id']) and $_SESSION['id'] == $idLocatario)) { ?>
-              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#checkBackdrop">
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#checkBackdrop"
+               <?php echo ($checked or $cancelado) ?  "disabled" : "" ?> >
                 Check-in
               </button>
 
@@ -209,15 +222,16 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="">
+                      <form action="CHECKIN" method="post">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="check" id="check1" value="1">
+                          <input class="form-check-input" type="radio" name="check" id="check1" value="1" checked>
                           <label class="form-check-label" for="check1">Sim, tudo certo</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="check" id="check2" value="0">
                           <label class="form-check-label" for="check2">Não, algo está errado</label>
                         </div>
+                        <input type="hidden" name="idAluguel" value="<?php echo $idAluguel?>">
                         <button type="submit" class="btn btn-primary">Enviar</button>
                       </form>
                     </div>
@@ -225,7 +239,8 @@
                 </div>
               </div>
 
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelarBackdrop">
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelarBackdrop"
+              <?php echo $cancelado ?  "disabled" : "" ?> >
                 Cancelar locação
               </button>
 
@@ -238,15 +253,16 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="">
+                      <form action="CANCELARLOCACAO" method="post">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="cancelar" id="cancelar1" value="1">
+                          <input class="form-check-input" type="radio" name="cancelar" id="cancelar1" value="1" checked>
                           <label class="form-check-label" for="cancelar1">Sim</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="cancelar" id="cancelar2" value="0">
                           <label class="form-check-label" for="cancelar2">Não</label>
                         </div>
+                        <input type="hidden" name="idAluguel" value="<?php echo $idAluguel?>">
                         <button type="submit" class="btn btn-danger">Cancelar locacão</button>
                       </form>
                     </div>
@@ -254,10 +270,11 @@
                 </div>
               </div>
             <?php } else if ((isset($_SESSION['id']) and $_SESSION['id'] != $imovel->getAnfitriao())) { ?>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alugarBackdrop">
-                Alugar
-              </button>
-
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alugarBackdrop"
+                <?php echo empty($periodos) ? "disabled" : "" ?>>
+                  Alugar
+                </button>
+  
               <!-- Modal -->
               <div class="modal fade" id="alugarBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -273,34 +290,38 @@
                         <h6>Preco : R$<?php echo $imovel->getPreco_diaria(); ?></h6>
                         <div class="form-group">
                           <label for="name">Nome completo</label>
-                          <input type="text" class="form-control" id="name" name="titular" placeholder="Nome completo">
+                          <input type="text" class="form-control" id="name" name="titular" placeholder="Nome completo" required>
                         </div>
                         <div class="form-group">
                           <label for="cpf">CPF</label>
-                          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+                          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" required>
                         </div>
                         <div class="form-group">
                           <label for="numero_cartao">Numero do cartão</label>
-                          <input type="text" class="form-control" placeholder="1234 1234 1234 1234" name="numero_cartao">
+                          <input type="text" class="form-control" placeholder="1234 1234 1234 1234" name="numero_cartao" required>
                         </div>
                         <div class="form-group">
                           <label for="codigo_seguranca">CVV</label>
-                          <input type="text" class="form-control" name="codigo_seguranca" placeholder="699">
+                          <input type="text" class="form-control" name="codigo_seguranca" placeholder="699" required>
                         </div>
                         <div class="form-group">
                           <label for="validade_cartao">Data de validade</label>
-                          <input type="date" class="form-control" id="validade_cartao" name="validade_cartao">
+                          <input type="date" class="form-control" id="validade_cartao" name="validade_cartao" required>
                         </div>
                         <input type="hidden" name="idImovel" value="<?php echo $imovel->getIdImovel(); ?>">
 
                         <div class="d-flex flex-column m-2">
 
                           <h6>Escolha um dos períodos disponíveis</h6>
-                          <?php foreach ($periodos as $periodo) { ?>
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="periodo" id="" value="<?php echo $periodo->getIdPeriodo(); ?>" checked>
-                              <label class="form-check-label" for=""><?php echo $periodo->format() ?></label>
-                            </div>
+                          <?php if (!empty($periodos)) { ?>
+                            <?php foreach ($periodos as $periodo) { ?>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="periodo" id="" value="<?php echo $periodo->getIdPeriodo(); ?>" checked>
+                                <label class="form-check-label" for=""><?php echo $periodo->format() ?></label>
+                              </div>
+                            <?php } ?>
+                          <?php } else { ?>
+                            <?php echo "Sem periodos disponíveis" ?>
                           <?php } ?>
 
                         </div>

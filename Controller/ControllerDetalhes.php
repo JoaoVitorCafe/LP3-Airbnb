@@ -21,19 +21,27 @@ class ControllerDetalhes{
         $endereco = Endereco::find(intval($imovel->getEndereco()));
         $tipo = Imovel::findTipo(intval($imovel->getTipo()));
         $caracteristicas = Imovel::findCaracteristicas(intval($imovel->getIdImovel()));
-        $periodos = Periodo::find($_SESSION["idImovel"]);
-        
-        // $periodoAlugado = false;
-        $idLocatario = false;
+        $periodosImovel = Periodo::find($_SESSION["idImovel"]);
+        $periodos = array();
+        foreach ($periodosImovel as $periodo) {
+            if(!$periodo->getEmUso()){
+                array_push($periodos , $periodo);
+            }
+        }
+
+        $idLocatario = 0;
         $checked = 0;
         $cancelado = 0;
+        $idAluguel = 0;
         if(isset($_POST['idAluguel'])) {
             $_SESSION["idAluguel"] = $_POST['idAluguel'];
-            $aluguel = Aluguel::getAlugueisImovel($_POST["idAluguel"]);
+            $aluguel = Aluguel::getAlugueisImovel($_SESSION["idAluguel"]);
             $idLocatario = $aluguel->getLocatario();
             $checked = $aluguel->getChecked();
             $cancelado = $aluguel->getCancelado();
+            $idAluguel = $aluguel->getIdAluguel();
         }
+        
 
         // tratamento de data;
         $dataTermino = false;

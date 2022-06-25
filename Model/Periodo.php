@@ -142,6 +142,7 @@ require_once "Conexao.php";
                     while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
                     $periodo = new Periodo($linha['imoveis_idimoveis'] , $linha['inicio'], $linha['fim']);  
                     $periodo->setIdPeriodo($linha['idperiodos']);
+                    $periodo->setEmUso($linha['emUso']);
                     array_push($periodos , $periodo);
                 }
                         
@@ -154,6 +155,29 @@ require_once "Conexao.php";
                 return 0;
                }
             }
+
+            public static function reservarPeriodo($id){
+                try{
+                    $resultado = 0;    
+                    $minhaConexao = Conexao::getConexao();
+                    $sql = $minhaConexao->prepare("update bd_airbnb.periodos 
+                    set emUso = :emUso where bd_airbnb.periodos.idperiodos = :id");
+                    $sql->bindParam("id",$id);
+                    $sql->bindParam("emUso",$emUso);
+                    $emUso = 1;    
+
+                    $resultado = $sql->execute();
+                    
+                    return $resultado;
+                }
+    
+               catch(PDOException $e){
+                echo"entrou no catch".$e->getmessage();
+                return 0;
+               }
+            }
+
+        //     
 
         /**
          * Get the value of emUso
