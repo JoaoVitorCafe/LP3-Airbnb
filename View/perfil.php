@@ -67,7 +67,7 @@
                 <p class="card-text">
                   <?php echo $imoveisCadastrados[$i]->getDescricao(); ?>
                 </p>
-                <form method="post" action="DETALHESANFITRIAO">
+                <form method="post" action="DETALHES">
                   <input type="hidden" name="idImovel" value="<?php echo $imoveisCadastrados[$i]->getIdImovel(); ?>">
                   <button type="submit" class="btn btn-primary">Detalhes</button>
                 </form>
@@ -101,7 +101,7 @@
                 <p class="card-text">
                   <?php echo $alugueis[$i]->getImovel()->getDescricao(); ?>
                 </p>
-                <form method="post" action="DETALHESANFITRIAO">
+                <form method="post" action="DETALHES">
                   <input type="hidden" name="idImovel" value="<?php echo $alugueis[$i]->getImovel()->getIdImovel(); ?>">
                   <input type="hidden" name="idAluguel" value="<?php echo $alugueis[$i]->getIdAluguel(); ?>">
                   <button type="submit" class="btn btn-primary">Detalhes</button>

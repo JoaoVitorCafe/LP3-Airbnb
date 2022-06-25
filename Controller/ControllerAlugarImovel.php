@@ -28,6 +28,6 @@ class ControllerAlugarImovel
         $this->aluguel = new Aluguel($_POST["idImovel"], $_POST["periodo"], $_SESSION["id"], $idCartao);
         $idAluguel = $this->aluguel->cadastrar($this->aluguel);
 
-        header('Location: DETALHESANFITRIAO', true ,302);
+        header('Location: DETALHES', true ,302);
     }
 }

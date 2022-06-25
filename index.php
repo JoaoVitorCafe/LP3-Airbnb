@@ -49,9 +49,9 @@
 					$controlador = new ControllerNovoImovel();
 					$controlador->processaRequisicao();
 					break;
-				case "DETALHESANFITRIAO":
-					require "Controller/ControllerDetalhesAnfitriao.php";    
-					$controlador = new ControllerDetalhesAnfitriao();
+				case "DETALHES":
+					require "Controller/ControllerDetalhes.php";    
+					$controlador = new ControllerDetalhes();
 					$controlador->processaRequisicao();
 					break;
 				case "CADASTRARPERIODO":

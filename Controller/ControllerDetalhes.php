@@ -7,7 +7,7 @@ require_once "Model/Periodo.php";
 require_once "Model/Comentario.php";
 require_once "Model/Anuncio.php";
 require_once "Model/Aluguel.php";
-class ControllerDetalhesAnfitriao{
+class ControllerDetalhes{
     
     public function processaRequisicao(){
 
@@ -44,7 +44,7 @@ class ControllerDetalhesAnfitriao{
         //apenas mostrar o anucio na página se o usuário for o anfitrião
         // $comentarios = Comentarios::find();
         
-        require "View/detalhes_anfitriao.php";
+        require "View/detalhes.php";
     }
 }
     

@@ -54,19 +54,17 @@ DONE*/
     na mesma tabela alugueis.
 
 /* DONE
-    
+
     /*TODO 
-    
-    1 - TROCAR NOME Do detalhe Anfitrião para detalhe;
+    2 - FAZER A IMAGEM APARECER;
     2 - Fazer checkin e cancelar;
     3 - Aparecer status na página de detalhes;
     5 - Fazer comentários;
     3 - Fazer todo o processo dos periodos(tirar aqueles que já foram escolhidos através do atributo "emUso");
-    2 - FAZER A IMAGEM APARECER;
-    10 - REVER FUNCÕES DE PESQUISA;
+    10 - REVER FUNCÕES DE PESQUISA e destaque em imoveis;
     10 - Proteger acesso as paginas
     10 - Resolver problemas do css na pagina de detalhes;
-*/
+    /*TODO 
 
 ## Problemas 
 - Cadastrar imagem = colocar qualquer coisa apenas para testar;

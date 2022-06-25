@@ -37,6 +37,6 @@ class ControllerAnunciar
                 $this->anuncio->cadastrar($this->anuncio);
             }
          
-            header('Location:DETALHESANFITRIAO', true, 302);
+            header('Location:DETALHES', true, 302);
     }
 }

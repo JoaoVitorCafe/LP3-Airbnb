@@ -11,7 +11,7 @@ class ControllerCadastroPeriodo{
 
     $this->periodo->cadastrar($this->periodo);
       
-    header('Location: DETALHESANFITRIAO', true ,302);
+    header('Location: DETALHES', true ,302);
 
    }
 }

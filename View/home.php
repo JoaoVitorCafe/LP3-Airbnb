@@ -177,7 +177,7 @@
                     <h5><i class="fa-solid fa-person"></i><?php echo $imovel->getCapacidade();?></h5>
                     <h5 class="font-weight-bold "><?php echo $imovel->getEndereco();?></h5>
                   </p>
-                  <form method="post" action="DETALHESANFITRIAO">
+                  <form method="post" action="DETALHES">
                       <input type="hidden" name="idImovel" value="<?php echo $imovel->getIdImovel();?>">
                       <button type="submit" class="btn btn-primary">Detalhes</button>
                     </form>
