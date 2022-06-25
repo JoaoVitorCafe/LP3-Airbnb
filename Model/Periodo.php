@@ -6,12 +6,13 @@ require_once "Conexao.php";
         private $idImovel;
         private $inicio;
         private $fim;
-
+        private $emUso;
 
         function __construct($idImovel , $inicio , $fim) {
             $this->idImovel = $idImovel;
             $this->inicio = $inicio;
             $this->fim = $fim;
+            $this->emUso = 0;
         }
 
         /**
@@ -104,14 +105,17 @@ require_once "Conexao.php";
         public function cadastrar($periodo) {
                 try{
                     $minhaConexao = Conexao::getConexao();
-                    $sql = $minhaConexao->prepare("insert into bd_airbnb.periodos (imoveis_idimoveis, inicio, fim ) 
-                    values (:imoveis_idimoveis,:inicio,:fim)");
+                    $sql = $minhaConexao->prepare("insert into bd_airbnb.periodos (imoveis_idimoveis, inicio, fim , emUso) 
+                    values (:imoveis_idimoveis,:inicio,:fim ,:emUso)");
                     $sql->bindParam("imoveis_idimoveis",$idImovel);
                     $sql->bindParam("inicio",$inicio);
                     $sql->bindParam("fim",$fim);
+                    $sql->bindParam("emUso",$emUso);
                     $idImovel = $periodo->getIdImovel();
                     $inicio = $periodo->getInicio();
-                    $fim = $periodo->getFim();      
+                    $fim = $periodo->getFim();
+                    $emUso = $periodo->getEmUso();      
+
                     $sql->execute();
          
                     $last_id = $minhaConexao->lastInsertId();
@@ -151,5 +155,24 @@ require_once "Conexao.php";
                }
             }
 
+        /**
+         * Get the value of emUso
+         */ 
+        public function getEmUso()
+        {
+                return $this->emUso;
+        }
+
+        /**
+         * Set the value of emUso
+         *
+         * @return  self
+         */ 
+        public function setEmUso($emUso)
+        {
+                $this->emUso = $emUso;
+
+                return $this;
+        }
     }
 ?>    

@@ -47,7 +47,7 @@
   <!-- Navbar -->
 
 
-  <div class="container d-flex flex-row flex-wrap justify-content-lg-between">
+  <div class="container d-flex flex-column flex-wrap justify-content-lg-between">
     <div class="anfitriao">
       <p class="info">
       <h2>Meus imóveis</h2>
@@ -55,27 +55,27 @@
       </p>
 
       <div class="d-flex flex-wrap">
-        <?php if (!empty($imoveis)) { ?>
-          <?php for ($i = 0; $i < count($imoveis); $i++) { ?>
+        <?php if (!empty($imoveisCadastrados)) { ?>
+          <?php for ($i = 0; $i < count($imoveisCadastrados); $i++) { ?>
             <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
               <div class="card-body text-center">
-                <?php if ($imoveis[$i]->getAnuncio()) { ?>
+                <?php if ($imoveisCadastrados[$i]->getAnuncio()) { ?>
                   <h3 class="text-warning">Destaque</h3>
                 <?php } ?>
-                <h3 class="card-title mb-3"><?php echo $imoveis[$i]->getTipo(); ?></h3>
-                <h5><i class="fa-solid fa-person"></i><?php echo $imoveis[$i]->getCapacidade(); ?></h5>
+                <h3 class="card-title mb-3"><?php echo $imoveisCadastrados[$i]->getTipo(); ?></h3>
+                <h5><i class="fa-solid fa-person"></i><?php echo $imoveisCadastrados[$i]->getCapacidade(); ?></h5>
                 <p class="card-text">
-                  <?php echo $imoveis[$i]->getDescricao(); ?>
+                  <?php echo $imoveisCadastrados[$i]->getDescricao(); ?>
                 </p>
                 <form method="post" action="DETALHESANFITRIAO">
-                  <input type="hidden" name="idImovel" value="<?php echo $imoveis[$i]->getIdImovel(); ?>">
+                  <input type="hidden" name="idImovel" value="<?php echo $imoveisCadastrados[$i]->getIdImovel(); ?>">
                   <button type="submit" class="btn btn-primary">Detalhes</button>
                 </form>
               </div>
             </div>
           <?php } ?>
         <?php } else { ?>
-          <h5><?php echo "Sem imóveis cadastrados" ?></h5>
+          <h5><?php echo "Sem imoveis cadastrados" ?></h5>
         <?php } ?>
 
       </div>
@@ -84,46 +84,34 @@
     <div class="locatario">
 
       <p class="info">
-      <h3>Imóveis que já aluguei</h3>
+      <h3>Minhas locações</h3>
       <a href="HOME">Explorar outros imóveis</a>
       </p>
 
       <div class="d-flex flex-wrap">
-
-        <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
-          <div class="card-body text-center">
-            <h3 class="card-title mb-3">Casa</h3>
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Iure, quas quidem possimus dolorum esse eligendi?
-            </p>
-            <a href="./detalhes_locatario.html" class="btn btn-primary">Detalhes</a>
-          </div>
-        </div>
-
-        <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
-          <div class="card-body text-center">
-            <h3 class="card-title mb-3">Casa</h3>
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Iure, quas quidem possimus dolorum esse eligendi?
-            </p>
-            <a href="./detalhes_locatario.html" class="btn btn-primary">Detalhes</a>
-          </div>
-        </div>
-
-        <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/acomodacoes.jpg); background-position: center; background-repeat: no-repeat;">
-          <div class="card-body text-center">
-            <h3 class="card-title mb-3">Casa</h3>
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Iure, quas quidem possimus dolorum esse eligendi?
-            </p>
-            <a href="./detalhes_locatario.html" class="btn btn-primary">Detalhes</a>
-          </div>
-        </div>
-
-
+        <?php if (!empty($alugueis)) { ?>
+          <?php for ($i = 0; $i < count($alugueis); $i++) { ?>
+            <div class="card text-light" style="background-image: url(View/styles/imagens_carrossel/casa_noite.jpg); background-position: center; background-repeat: no-repeat;">
+              <div class="card-body text-center">
+                <?php if ($alugueis[$i]->getImovel()->getAnuncio()) { ?>
+                  <h3 class="text-warning">Destaque</h3>
+                <?php } ?>
+                <h3 class="card-title mb-3"><?php echo $alugueis[$i]->getImovel()->getTipo(); ?></h3>
+                <h5><i class="fa-solid fa-person"></i><?php echo $alugueis[$i]->getImovel()->getCapacidade(); ?></h5>
+                <p class="card-text">
+                  <?php echo $alugueis[$i]->getImovel()->getDescricao(); ?>
+                </p>
+                <form method="post" action="DETALHESANFITRIAO">
+                  <input type="hidden" name="idImovel" value="<?php echo $alugueis[$i]->getImovel()->getIdImovel(); ?>">
+                  <input type="hidden" name="idAluguel" value="<?php echo $alugueis[$i]->getIdAluguel(); ?>">
+                  <button type="submit" class="btn btn-primary">Detalhes</button>
+                </form>
+              </div>
+            </div>
+          <?php } ?>
+        <?php } else { ?>
+          <h5><?php echo "Sem alugueis realizados" ?></h5>
+        <?php } ?>
       </div>
 
     </div>

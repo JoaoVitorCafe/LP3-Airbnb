@@ -6,6 +6,7 @@ require_once "Model/Endereco.php";
 require_once "Model/Periodo.php";
 require_once "Model/Comentario.php";
 require_once "Model/Anuncio.php";
+require_once "Model/Aluguel.php";
 class ControllerDetalhesAnfitriao{
     
     public function processaRequisicao(){
@@ -22,6 +23,18 @@ class ControllerDetalhesAnfitriao{
         $caracteristicas = Imovel::findCaracteristicas(intval($imovel->getIdImovel()));
         $periodos = Periodo::find($_SESSION["idImovel"]);
         
+        // $periodoAlugado = false;
+        $idLocatario = false;
+        $checked = 0;
+        $cancelado = 0;
+        if(isset($_POST['idAluguel'])) {
+            $_SESSION["idAluguel"] = $_POST['idAluguel'];
+            $aluguel = Aluguel::getAlugueisImovel($_POST["idAluguel"]);
+            $idLocatario = $aluguel->getLocatario();
+            $checked = $aluguel->getChecked();
+            $cancelado = $aluguel->getCancelado();
+        }
+
         // tratamento de data;
         $dataTermino = false;
         if($anuncio = Anuncio::find($_SESSION["idImovel"])){

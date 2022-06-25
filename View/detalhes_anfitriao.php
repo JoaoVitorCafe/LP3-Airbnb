@@ -195,7 +195,65 @@
                   </div>
                 </div>
               </div>
-            <?php } else { ?>
+            <?php } else if ((isset($_SESSION['id']) and $_SESSION['id'] == $idLocatario)) { ?>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#checkBackdrop">
+                Check-in
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="checkBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="checklabel">Confirme se está tudo certo</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="check" id="check1" value="1">
+                          <label class="form-check-label" for="check1">Sim, tudo certo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="check" id="check2" value="0">
+                          <label class="form-check-label" for="check2">Não, algo está errado</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelarBackdrop">
+                Cancelar locação
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="cancelarBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="checklabel">Tem certeza que deseja cancelar?</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="cancelar" id="cancelar1" value="1">
+                          <label class="form-check-label" for="cancelar1">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="cancelar" id="cancelar2" value="0">
+                          <label class="form-check-label" for="cancelar2">Não</label>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Cancelar locacão</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php } else if ((isset($_SESSION['id']) and $_SESSION['id'] != $imovel->getAnfitriao())) { ?>
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alugarBackdrop">
                 Alugar
               </button>
@@ -215,7 +273,7 @@
                         <h6>Preco : R$<?php echo $imovel->getPreco_diaria(); ?></h6>
                         <div class="form-group">
                           <label for="name">Nome completo</label>
-                          <input type="text" class="form-control" id="name" name="nome" placeholder="Nome completo">
+                          <input type="text" class="form-control" id="name" name="titular" placeholder="Nome completo">
                         </div>
                         <div class="form-group">
                           <label for="cpf">CPF</label>
@@ -227,11 +285,11 @@
                         </div>
                         <div class="form-group">
                           <label for="codigo_seguranca">CVV</label>
-                          <input type="text" class="form-control" id="codigo_seguranca" placeholder="699">
+                          <input type="text" class="form-control" name="codigo_seguranca" placeholder="699">
                         </div>
                         <div class="form-group">
                           <label for="validade_cartao">Data de validade</label>
-                          <input type="month" class="form-control" id="validade_cartao" name="validade_cartao">
+                          <input type="date" class="form-control" id="validade_cartao" name="validade_cartao">
                         </div>
                         <input type="hidden" name="idImovel" value="<?php echo $imovel->getIdImovel(); ?>">
 
@@ -240,7 +298,7 @@
                           <h6>Escolha um dos períodos disponíveis</h6>
                           <?php foreach ($periodos as $periodo) { ?>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="periodo" id="" value="<?php echo $periodo->getIdPeriodo() ?>" checked>
+                              <input class="form-check-input" type="radio" name="periodo" id="" value="<?php echo $periodo->getIdPeriodo(); ?>" checked>
                               <label class="form-check-label" for=""><?php echo $periodo->format() ?></label>
                             </div>
                           <?php } ?>
@@ -254,7 +312,12 @@
                   </div>
                 </div>
               </div>
-            <?php }  ?>
+            <?php } else { ?>
+              <form action="CADASTRARUSUARIO" method="post">
+                <input type="hidden" name="idImovel" value="<?php echo $imovel->getIdImovel(); ?>">
+                <button type="submit" class="btn btn-primary"> Cadastre-se para alugar imovéis </button>
+              </form>
+            <?php } ?>
 
           </div>
 

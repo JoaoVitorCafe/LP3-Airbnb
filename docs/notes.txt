@@ -40,10 +40,7 @@ DONE*/
 	2 - Alterar diagrama ERR usuario(estado , cidade);
     3 - IMPLEMENTAR AVISO DE QUE NÃO EXISTE IMOVEIS NO PERFIL;
     10 - Se possível colocar dataTermino na página de detalhes e perfil
-/* DONE
-    
-    /*TODO 
-    5 - Fazer parte de aluguel e comentários.
+     parte de aluguel e
     4 - Avaliar páginas de detalhes
     Anfitrião
     Mostrar pagar para divulgar e cadastrar períodos quando o usuário tiver com sessão e o idusuario do imóvel for igual ao id da sessão
@@ -55,9 +52,18 @@ DONE*/
     locatario - fazer depois da parte de compras
     mostrar página do locatário quando o idsessao for diferente do idusuario do imovel e verificar se o iddoimovel e do usuario estão 
     na mesma tabela alugueis.
+
+/* DONE
     
-    2 - FAZER A IMAGEM APARECER.
-    10 - REVER FUNCÕES DE PESQUISA.
+    /*TODO 
+    
+    1 - TROCAR NOME Do detalhe Anfitrião para detalhe;
+    2 - Fazer checkin e cancelar;
+    3 - Aparecer status na página de detalhes;
+    5 - Fazer comentários;
+    3 - Fazer todo o processo dos periodos(tirar aqueles que já foram escolhidos através do atributo "emUso");
+    2 - FAZER A IMAGEM APARECER;
+    10 - REVER FUNCÕES DE PESQUISA;
     10 - Proteger acesso as paginas
     10 - Resolver problemas do css na pagina de detalhes;
 */

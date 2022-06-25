@@ -4,13 +4,15 @@ require "Model/Cartao.php";
 require "Model/Imovel.php";
 require "Model/Aluguel.php";
 
-class ControllerAlugarImovel{
+class ControllerAlugarImovel
+{
     private $cartao;
     private $aluguel;
     private $imovel;
-   
-   public function processaRequisicao(){ 
-    $idCartao = Cartao::find($_POST['numero_cartao']);
+
+    public function processaRequisicao()
+    {
+        $idCartao = Cartao::find($_POST['numero_cartao']);
         if (!$idCartao) {
             $this->cartao = new Cartao(
                 $_SESSION["id"],
@@ -22,13 +24,10 @@ class ControllerAlugarImovel{
             );
             $idCartao = $this->cartao->cadastrar($this->cartao);
         }
-    // criar um aluguel com o id do imóvel e do cartão;
-    // cadastrar aluguel e adicionar aos imoveis cadastrados para mandar pro perfil
-    
 
-    header('Location:PERFIL', true ,302);
+        $this->aluguel = new Aluguel($_POST["idImovel"], $_POST["periodo"], $_SESSION["id"], $idCartao);
+        $idAluguel = $this->aluguel->cadastrar($this->aluguel);
+
+        header('Location: DETALHESANFITRIAO', true ,302);
     }
 }
-   
-   
-?>
